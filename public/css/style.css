@@ -1,0 +1,131 @@
+/* RESET ? 
+*/
+body {
+    margin: 0;
+}
+
+
+/* POLICES UTILISEES 
+*/
+
+
+/* TITRE ET NOM DE L'AUTEUR */
+header {
+    text-align: center;
+    background-color: black;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#bookTitle {
+    margin: 0;
+}
+
+#bookAuthor {
+    margin-top: 0;
+    font-size: 1.25em;
+}
+
+/* MENU */
+ul.menu {
+    display: -webkit-inline-box;
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin-bottom: 0;
+}
+
+.menu li {
+    margin: 0.2em 0.5em 0.2em 0.5em;
+}
+
+
+/* AFFICHAGE DE LA LISTE DES CHAPITRES */
+.borderedText {
+    border: 4px double black;
+    margin: 20px;
+    padding: 5px;
+}
+
+.textContent {
+    margin: 5px;
+}
+
+.listChapters h3 {
+    margin: 5px;
+}
+
+
+/* FOOTER */
+footer {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* PAGE CHAPITRE */
+.chapterDiv {
+    margin: 8px;
+}
+
+
+/* COMMENTAIRE */
+.commentsDiv {
+    margin: 8px;
+}
+
+#author {
+    border-radius: 3px;
+}
+
+#comment {
+    resize: none;
+    border-radius: 3px;
+    width: 300px;
+    height: 50px;
+}
+
+.commentDiv {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.commentDiv p {
+    margin: 10px;
+}
+
+
+/* PAGE AUTEUR */
+.authorBio h2 {
+    margin: 5px;
+}
+
+.authorAmazon {
+    margin: 5px;
+    padding: 5px;
+}
+
+
+
+
+/* PAGE CONTACT */
+
+.contactForm {
+    height: 60%;
+    width: 20%;
+    margin-top: 5%;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgba(156, 156, 156, 0.7);
+}
+
+.contactForm input, .contactForm textarea {
+    width: 100%;
+    margin-top: 1em;
+    border-style: none;
+    border-radius: 3px;
+}
+
+#contactTitle {
+    margin : 0;
+}

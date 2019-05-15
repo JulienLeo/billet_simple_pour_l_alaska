@@ -1,0 +1,13 @@
+{
+    "name": "julien/billet_simple",
+    "authors": [
+        {
+            "name": "JuLeo",
+            "email": "julien.t.leopold@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^1.40",
+        "twig/extensions": "^1.5"
+    }
+}
