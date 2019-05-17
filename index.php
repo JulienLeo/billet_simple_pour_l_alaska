@@ -6,7 +6,7 @@
 
     ob_start();
 
-    $page = 'index';
+    $page = 'home';
 
     // Routeur
     if (isset($_GET['p'])) {
@@ -27,18 +27,23 @@
     ]);
 
     $twig->addExtension(new Extension());
+    $twig->addGlobal('current_page', $page);
 
     switch ($page) {
         /*case 'contact' :
             echo $twig->render('contact.php');
             break;*/
         
-        case 'index' : 
+        case 'home' : 
             echo $twig->render('home.php', ['chapters' => listChapters()]);
             break;
 
         case 'chapter' :
-            echo $twig->render('chapterView.php', ['chapter' => chapter($_GET['id'])]);
+            echo $twig->render('chapterView.php', ['chapter' => chapter()]);
+            break;
+        
+        case 'author' : 
+            echo $twig->render('authorView.php');
             break;
         
         default : 

@@ -25,6 +25,11 @@
         require 'view/frontend/chapterView.php';
     }
 
+    function nextChapter($chapterId) {
+        $one = 1;
+        $nextChapter = $chapterId + $one;
+    }
+
     function addComment($chapterId, $author_comment, $comment) {
         $commentManager = new billet_simple\model\CommentManager();
         
@@ -39,9 +44,4 @@
 
     function alertComment($chapterId, $commentId) {
 
-    }
-
-    // CHAPITRE SUIVANT
-    function nextChapter() {
-        
     }

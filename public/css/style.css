@@ -4,7 +4,6 @@ body {
     margin: 0;
 }
 
-
 /* POLICES UTILISEES 
 */
 
@@ -14,15 +13,14 @@ header {
     text-align: center;
     background-color: black;
     color: white;
-    margin-bottom: 20px;
 }
 
-#bookTitle {
-    margin: 0;
+header h1 {
+    font-size: 2em;
+    font-weight: bold;
 }
 
 #bookAuthor {
-    margin-top: 0;
     font-size: 1.25em;
 }
 
@@ -38,10 +36,42 @@ ul.menu {
     margin: 0.2em 0.5em 0.2em 0.5em;
 }
 
+.menu a:hover {
+    color: white;
+}
+
+.chapterSelection {
+    font-size: 1em;
+    color: #3273dc;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+}
+
+.chapterSelection:hover {
+    color: white;
+    border: none;
+}
+
+.chapterSelection:active {
+    color: white;
+    border: orange;
+}
+
+.selection {
+    cursor: pointer !important;
+}
+
+.selection:hover {
+    cursor: pointer !important;
+}
+
+
 
 /* AFFICHAGE DE LA LISTE DES CHAPITRES */
 .borderedText {
     border: 4px double black;
+    border-radius: 5px;
     margin: 20px;
     padding: 5px;
 }
@@ -52,6 +82,8 @@ ul.menu {
 
 .listChapters h3 {
     margin: 5px;
+    font-size: 1.17em;
+    font-weight: bold;
 }
 
 
@@ -100,7 +132,7 @@ footer {
 }
 
 .authorAmazon {
-    margin: 5px;
+    margin: 15px;
     padding: 5px;
 }
 
@@ -128,4 +160,12 @@ footer {
 
 #contactTitle {
     margin : 0;
+}
+
+
+@media screen and (min-width: 1088px) {
+    .container {
+        max-width: unset;
+        width: unset;
+    }
 }

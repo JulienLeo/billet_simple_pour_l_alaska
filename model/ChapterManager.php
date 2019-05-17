@@ -9,7 +9,7 @@
 
             $db = $this->dbConnect();
             
-            $req = $db->query('SELECT id, title, content, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters ORDER BY id');
+            $req = $db->query('SELECT id, title, content, img_url, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters ORDER BY id');
         
             return $req;
         }
@@ -17,7 +17,7 @@
         public function getChapter($chapterId) { // récupération d'un chapitre précis en fonction de son id
             $db = $this->dbConnect();
     
-            $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters WHERE id = ?');
+            $req = $db->prepare('SELECT id, title, content, img_url, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters WHERE id = ?');
             $req->execute(array($chapterId));
             $chapter = $req->fetch();
     
