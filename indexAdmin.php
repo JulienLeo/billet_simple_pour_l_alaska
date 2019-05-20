@@ -6,7 +6,7 @@
 
     ob_start();
 
-    $page = 'home';
+    $page = 'admin';
 
     // Routeur
     if (isset($_GET['p'])) {
@@ -20,32 +20,35 @@
 
 
     // Rendu du template
-    $loader = new Twig_Loader_Filesystem(__DIR__ . '/view/frontend');
+    $loader = new Twig_Loader_Filesystem(__DIR__ . '/view/admin');
     
     $twig = new Twig_Environment($loader, [
         'cache' => false // __DIR__ . '/tmp' // penser à mettre le cache à false pour qu'à l'actualisation il y ait rechargement de la page
     ]);
 
     $twig->addExtension(new Extension());
-    $twig->addGlobal('current_page', $page);
 
     switch ($page) {
-        /*case 'contact' :
-            echo $twig->render('contact.php');
-            break;*/
+        case 'admin' : 
+            echo $twig->render('admin.php');
+            break;
         
-        case 'home' : 
-            echo $twig->render('home.php', ['chapters' => listChapters()]);
+        case 'addChapter' : 
+    echo $twig->render('addChapter.php'/*, ['chapter' => addChapter()]*/);
+            break;
+        
+        case 'modifyChapter' : 
+        echo $twig->render('modifyChapter.php'/*, ['modifiedChapter' => modifyChapter()]*/); // + listChapters()
             break;
 
-        case 'chapter' :
-            echo $twig->render('chapterView.php', ['chapter' => chapter()]); // + getComments() + postComment() + alertComment()
+        case 'adminComments' : 
+        echo $twig->render('adminComments.php'/*, ['adminComments' => adminComments()]*/);
             break;
-        
-        case 'author' : 
-            echo $twig->render('authorView.php');
+
+        case 'authorPage' : 
+        echo $twig->render('authorPage.php'/*, ['authorPage' => adminAuthor()]*/);
             break;
-        
+            
         default : 
             header('HTTP/1.0 404 Not Found');
             echo $twig->render('404.php');
@@ -53,4 +56,4 @@
     }
 
 
-// ob_get_clean();    
+// ob_get_clean(); 

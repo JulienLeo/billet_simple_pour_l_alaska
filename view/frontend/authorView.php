@@ -14,6 +14,6 @@
     </div>
 
     <div class="authorAmazon">
-        <a href="https://www.amazon.com/s?k=jean+forteroche&ref=nb_sb_noss">Jean Forteroche sur Amazon</a>
+        <a href="https://www.amazon.com/s?k=jean+forteroche&ref=nb_sb_noss" target="_blank">Jean Forteroche sur Amazon</a>
     </div>
 {% endblock %}
