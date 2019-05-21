@@ -131,6 +131,10 @@ footer {
     margin: 5px;
 }
 
+.authorBio img {
+    width: 20%;
+}
+
 .authorAmazon {
     margin: 15px;
     padding: 5px;

@@ -8,11 +8,11 @@
     <nav>
         <h2>Administration</h2>
         <ul>
-            <li><a href="indexAdmin.php?p=admin">Accueil</a></li>
-            <li><a href="indexAdmin.php?p=addChapter">Ajouter un chapitre</a></li>
-            <li><a href="indexAdmin.php?p=modifyChapter">Modifier/supprimer un chapitre</a></li>
-            <li><a href="indexAdmin.php?p=adminComments">Gérer les commentaires</a></li>
-            <li><a href="indexAdmin.php?p=authorPage">Page auteur</a></li>
+            <a href="indexAdmin.php?p=admin"><li>Accueil</li></a>
+            <a href="indexAdmin.php?p=addChapter"><li>Ajouter un chapitre</li></a>
+            <a href="indexAdmin.php?p=modifyChapter"><li>Modifier/supprimer un chapitre</li></a>
+            <a href="indexAdmin.php?p=adminComments"><li>Gérer les commentaires</li></a>
+            <a href="indexAdmin.php?p=authorPage"><li>Page auteur</li></a>
         </ul>
     </nav>
 {% endblock %}

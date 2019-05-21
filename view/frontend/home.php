@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="row" style="margin: 20px !important">
         {% for chapter in chapters %}
             <div class="card listChapters borderedText col-xs">
@@ -18,7 +17,7 @@
                     <p class="textContent"><em>Ajouté le {{ chapter.addition_date_fr }}</em></p>
                 </div>
             </div>
-            {% if loop.index is divisibleby(2) %}
+            <!--{% if loop.index is divisibleby(2) %}-->
     </div>
     <div class="row">
             {% endif %}

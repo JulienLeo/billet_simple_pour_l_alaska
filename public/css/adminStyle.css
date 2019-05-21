@@ -37,8 +37,9 @@ header {
     border-bottom: 1px white;
 }
 
-.sidebar li:hover a {
+.sidebar a:hover {
     color: #3273dc;
+    text-decoration: none;
 }
 
 /* PAGE */

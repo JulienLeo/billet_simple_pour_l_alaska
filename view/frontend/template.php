@@ -22,9 +22,9 @@
                         <form action="post" method="post">
                             <select class="chapterSelection" name="chapterSelection" id="chapterSelection">
                                 <option selected disabled >Chapitres</option>
-                                <!--{% for chapter in chapters %}-->
+                                {% for chapter in chapters %}
                                     <option class="selection" value="{{ chapter.id }}"><a href="index.php?action=post&amp;id={{ chapter.id }}">{{ chapter.id ~ '. ' ~ chapter.title }}</a></option>
-                                <!--{% endfor %}-->
+                                {% endfor %}
                             </select>
                         </form>
                     </li>
