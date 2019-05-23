@@ -20,10 +20,12 @@
                     <li class="nav-item"><a class="nav-link" href="index.php?p=home">Accueil</a></li>
                     <li class="nav-item">
                         <form action="post" method="post">
-                            <select class="chapterSelection" name="chapterSelection" id="chapterSelection">
+                            <select class="chapterSelection" name="chapterSelection" id="chapterSelection" onchange="location=this.value">
                                 <option selected disabled >Chapitres</option>
                                 {% for chapter in chapters %}
-                                    <option class="selection" value="{{ chapter.id }}"><a href="index.php?action=post&amp;id={{ chapter.id }}">{{ chapter.id ~ '. ' ~ chapter.title }}</a></option>
+                                    <option class="selection" value="index.php?action=post&amp;id={{ chapter.id }}">
+                                        {{ chapter.id ~ '. ' ~ chapter.title }}
+                                    </option>
                                 {% endfor %}
                             </select>
                         </form>

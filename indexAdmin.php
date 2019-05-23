@@ -34,7 +34,7 @@
             break;
         
         case 'addChapter' : 
-    echo $twig->render('addChapter.php'/*, ['chapter' => addChapter()]*/);
+        echo $twig->render('addChapter.php'/*, ['chapter' => addChapter()]*/);
             break;
         
         case 'modifyChapter' : 

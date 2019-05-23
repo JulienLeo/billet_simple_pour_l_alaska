@@ -50,16 +50,11 @@ ul.menu {
 
 .chapterSelection:hover {
     color: white;
-    border: none;
-}
-
-.chapterSelection:active {
-    color: white;
-    border: orange;
 }
 
 .selection {
     cursor: pointer !important;
+    color: #3273dc;
 }
 
 .selection:hover {
