@@ -64,12 +64,24 @@ ul.menu {
 
 
 /* AFFICHAGE DE LA LISTE DES CHAPITRES */
+.row {
+    margin: 20px !important;
+}
+
 .borderedText {
     border: 4px double black;
     border-radius: 5px;
     margin: 20px;
     padding: 5px;
 }
+
+#imgChapitre {
+    width: 20%;
+}
+
+/*.card-block {
+    width: 100%;
+}*/
 
 .textContent {
     margin: 5px;
@@ -101,15 +113,24 @@ footer {
     margin: 8px;
 }
 
+.commentsDiv h3 {
+    font-size: 1.17em;
+    font-weight: bold;
+    margin: .83em 0;
+}
+
 #author {
     border-radius: 3px;
+    display: flex;
 }
 
 #comment {
     resize: none;
     border-radius: 3px;
-    width: 300px;
+    width: 100%;
     height: 50px;
+    display: flex;
+    margin-bottom: 5px;
 }
 
 .commentDiv {

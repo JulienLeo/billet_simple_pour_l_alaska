@@ -34,19 +34,19 @@
             break;
         
         case 'addChapter' : 
-        echo $twig->render('addChapter.php'/*, ['chapter' => addChapter()]*/);
+            echo $twig->render('addChapter.php'/*, ['chapter' => addChapter()]*/);
             break;
         
         case 'modifyChapter' : 
-        echo $twig->render('modifyChapter.php'/*, ['modifiedChapter' => modifyChapter()]*/); // + listChapters()
+            echo $twig->render('modifyChapter.php'/*, ['editedChapter' => editChapter()]*/); // + listChapters()
             break;
 
         case 'adminComments' : 
-        echo $twig->render('adminComments.php'/*, ['adminComments' => adminComments()]*/);
+            echo $twig->render('adminComments.php'/*, ['adminComments' => adminComments()]*/);
             break;
 
         case 'authorPage' : 
-        echo $twig->render('authorPage.php'/*, ['authorPage' => adminAuthor()]*/);
+            echo $twig->render('authorPage.php'/*, ['authorPage' => adminAuthor()]*/);
             break;
             
         default : 

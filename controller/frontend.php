@@ -2,14 +2,22 @@
 
     require 'vendor/autoload.php';
     require_once 'model/ChapterManager.php';
+    require_once 'model/CommentManager.php';
 
     // PAGE ACCUEIL
     function listChapters() {
         $chapterManager = new billet_simple\model\ChapterManager(); // création d'un objet qui récupèrera les données d'un chapitre
         $chapters = $chapterManager->getChapters(); // appel de la fonction créant la liste des chapitres
-        
+
         return $chapters;
         //require 'view/frontend/home.php';
+    }
+
+    function listChaptersNav() {
+        $chapterManager = new billet_simple\model\ChapterManager(); // création d'un objet qui récupèrera les données d'un chapitre
+        $navList = $chapterManager->getChapters(); // appel de la fonction créant la liste des chapitres
+
+        return $navList;
     }
 
 
@@ -22,12 +30,17 @@
         $chapter = $chapterManager->getChapter($_GET['id']); // appel de la fonction qui sélectionne le chapitre selon son id
         $comments = $commentManager->getComments($_GET['id']); // appel de la fonction qui sélectionne les commentaires selon l'id du chapitre
 
-        require 'view/frontend/chapterView.php';
+        return $chapter;
+        return $comments;
+        //require 'view/frontend/chapterView.php';
     }
 
-    function nextChapter($chapterId) {
+    function nextChapter() {
         $one = 1;
-        $nextChapter = $chapterId + $one;
+        //$chapter = $chapterManager->getChapter($_GET['id']); // appel de la fonction qui sélectionne le chapitre selon son id
+        //$nextChapter = $chapter + $one;
+
+        //return $nextChapter;
     }
 
     function addComment($chapterId, $author_comment, $comment) {
@@ -43,5 +56,9 @@
     }
 
     function alertComment($chapterId, $commentId) {
+        $commentManager = new billet_simple\model\CommentManager();
 
+        $comment = $commentManager->getComments(($_GET['id']), ($_GET['chapter_id']));
+        
+        return $comment;
     }

@@ -15,16 +15,18 @@
 
 {% block main %}
     <h2>Accueil administration</h2>
-    <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae consequatur iste suscipit modi, pariatur, enim aliquid reiciendis vitae iusto debitis velit, accusantium quidem. Repellat suscipit dolore quidem, qui dolorum maxime!
-    </p>
-    <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae consequatur iste suscipit modi, pariatur, enim aliquid reiciendis vitae iusto debitis velit, accusantium quidem. Repellat suscipit dolore quidem, qui dolorum maxime!
-    </p>
-    <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae consequatur iste suscipit modi, pariatur, enim aliquid reiciendis vitae iusto debitis velit, accusantium quidem. Repellat suscipit dolore quidem, qui dolorum maxime!
-    </p>
-    <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae consequatur iste suscipit modi, pariatur, enim aliquid reiciendis vitae iusto debitis velit, accusantium quidem. Repellat suscipit dolore quidem, qui dolorum maxime!
-    </p>
+    <div class="homeLogos">
+        <div class="col-sm-1">
+            <p><a href="indexAdmin.php?p=addChapter"><i class="fas fa-align-justify"></i>Ajout d'un chapitre</a></p>
+        </div>
+        <div class="col-sm-1">
+            <p><a href="indexAdmin.php?p=modifyChapter"><i class="far fa-edit"></i>Modification/suppression d'un chapitre</a></p>
+        </div>
+        <div class="col-sm-1">
+            <p><a href="indexAdmin.php?p=adminComments"><i class="far fa-comment-dots"></i>Gestion des commentaires</a></p>
+        </div>
+        <div class="col-sm-1">
+            <p><a href="indexAdmin.php?p=authorPage"><i class="far fa-id-card"></i>Page auteur</a></p>
+        </div>
+    </div>
 {% endblock %}

@@ -23,14 +23,14 @@
                             <select class="chapterSelection" name="chapterSelection" id="chapterSelection" onchange="location=this.value">
                                 <option selected disabled >Chapitres</option>
                                 {% for chapter in chapters %}
-                                    <option class="selection" value="index.php?action=post&amp;id={{ chapter.id }}">
+                                    <option class="selection" value="index.php?action=chapter&amp;id={{ chapter.id }}">
                                         {{ chapter.id ~ '. ' ~ chapter.title }}
                                     </option>
                                 {% endfor %}
                             </select>
                         </form>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="index.php?p=author">L'auteur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php?action=author">L'auteur</a></li>
                 </ul>
             </nav>
         </header>

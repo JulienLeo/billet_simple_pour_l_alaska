@@ -9,8 +9,8 @@
     $page = 'home';
 
     // Routeur
-    if (isset($_GET['p'])) {
-        $page = $_GET['p'];
+    if (isset($_GET['action'])) {
+        $page = $_GET['action'];
     }
 
     // Récupération des chapitres dans la base de données 
@@ -38,8 +38,12 @@
             echo $twig->render('home.php', ['chapters' => listChapters()]);
             break;
 
+        case 'navList' : 
+            echo $twig->render(['navList' => listChaptersNav()]);
+            break;
+
         case 'chapter' :
-            echo $twig->render('chapterView.php', ['chapter' => chapter()]); // + getComments() + postComment() + alertComment()
+            echo $twig->render('chapterView.php', ['chapter' => chapter(), 'nextChapter' => nextChapter()/*, 'comments' => getComments(), 'postComment' => postComment()*/]); // + nextChapter() + getComments() + postComment() + alertComment()
             break;
         
         case 'author' : 
