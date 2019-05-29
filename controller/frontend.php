@@ -1,8 +1,8 @@
 <?php
 
     require 'vendor/autoload.php';
-    require_once 'model/ChapterManager.php';
-    require_once 'model/CommentManager.php';
+    require 'model/ChapterManager.php';
+    require 'model/CommentManager.php';
 
     // PAGE ACCUEIL
     function listChapters() {

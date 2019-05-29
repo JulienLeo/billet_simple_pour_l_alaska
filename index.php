@@ -38,9 +38,6 @@
             echo $twig->render('home.php', ['chapters' => listChapters()]);
             break;
 
-        case 'navList' : 
-            echo $twig->render(['navList' => listChaptersNav()]);
-            break;
 
         case 'chapter' :
             echo $twig->render('chapterView.php', ['chapter' => chapter(), 'nextChapter' => nextChapter()/*, 'comments' => getComments(), 'postComment' => postComment()*/]); // + nextChapter() + getComments() + postComment() + alertComment()

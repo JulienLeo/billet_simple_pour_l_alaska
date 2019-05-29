@@ -22,8 +22,7 @@
     <ul>
     <li>
 {% for chapter in chapters %}
-                    {{ chapter.id ~ '. ' ~ chapter.title }}
-                                    
+                    {{ chapter.id ~ '. ' ~ chapter.title }}                                 
 {% endfor %}
     </li>
 </ul>
