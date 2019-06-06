@@ -1,6 +1,6 @@
 <?php 
     require 'vendor/autoload.php';
-    require_once 'model/AdminManager.php';
+    require 'model/AdminManager.php';
 
     // CHAPITRES
 
@@ -34,7 +34,7 @@
     function modifyChapterAdmin() {
         $chapterManagerAdmin = new billet_simple\model\AdminManager(); // création d'un objet qui récupèrera les données d'un chapitre
         
-        $chapterAdmin = $chapterManagerAdmin->editChapter($_GET['id']); // appel de la fonction qui sélectionne le chapitre selon son id
+        $chapterAdmin = $chapterManagerAdmin->editChapterAdmin($_GET['id']); // appel de la fonction qui sélectionne le chapitre selon son id
 
         return $chapterAdmin;
     }
@@ -42,7 +42,7 @@
     function removeChapterAdmin() {
         $chapterManagerAdmin = new billet_simple\model\AdminManager();
 
-        $chapterAdmin = $chapterManagerAdmin->deleteChapter($_GET['id']); // appel du commentaire par son id
+        $chapterAdmin = $chapterManagerAdmin->deleteChapterAdmin($_GET['id']); // appel du commentaire par son id
 
         return $chapterAdmin;
     }

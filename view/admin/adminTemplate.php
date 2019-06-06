@@ -19,12 +19,7 @@
 
         <div class="container">
             
-            {% block content %}
-                    <div class="col-xs-8">
-                        {% block main %}{% endblock %}
-                    </div>
-                    
-            {% endblock %}
+            {% block content %}{% endblock %}
         </div>
         <footer>
             <p><a href="#top">Retour en haut de page</a></p>

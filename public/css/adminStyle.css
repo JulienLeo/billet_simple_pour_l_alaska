@@ -5,13 +5,14 @@ header {
 
 /* SIDEBAR */
 .sidebar {
-    height: -webkit-fill-available;
+    height: auto;
     background-color: #3c434f;
     padding: 0;
 }
 
 .sidebar nav {
     margin-top: 20px;
+    /*position: fixed;*/
 }
 
 .sidebar h2 {
@@ -21,6 +22,7 @@ header {
 .sidebar ul {
     list-style-type: none;
     padding: 0;
+    margin-top: 70px;
 }
 
 .sidebar li {
@@ -34,7 +36,6 @@ header {
 
 .sidebar a {
     color: white;
-    border-bottom: 1px white;
 }
 
 .sidebar a:hover {
@@ -43,6 +44,7 @@ header {
 }
 
 /* PAGE */
+
 .container {
     max-width: none;
     margin-left: 0;
@@ -50,12 +52,142 @@ header {
     background-color: #d9e6fc;
 }
 
-.row {
+/*.row {
     margin-right: 0;
-}
+}*/
 
 .content h2 {
     margin-top: 20px;
+}
+
+.pageTitle {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pageTitle i {
+    font-size: xx-large;
+}
+
+.pageTitle h2 {
+    margin-top: 10px;
+}
+
+/* PAGE D'ACCUEIL */
+
+.homeTitle {
+    text-align: center;
+}
+
+.homeLogos {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.paraLogo {
+    font-size: 40px;
+}
+
+.paraText {
+    font-size: 20px;
+}
+
+.linkSpanner {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+/* PAGE AJOUT CHAPITRE */
+
+.addChapterDiv {
+    margin-top: 50px;
+}
+
+.addChapterDivItem {
+    margin-bottom: 30px;
+}
+
+#addChapterTitle {
+    border-radius: 3px;
+}
+
+#addChapterContent {
+    width: 100%;
+    height: 180px;
+    border-radius: 3px;
+    resize: none;
+}
+
+#addChapterButton {
+    width: 80px;
+    padding: 5px;
+    background-color: #3273dc;
+    color: white;
+    border-style: none;
+    border-radius: 3px;
+}
+
+#addChapterButton:hover {
+    background-color: #191f51;
+}
+
+
+/* PAGE MODIFICATION/SUPPRESSION CHAPITRE */
+.listChaptersAdmin {
+    margin-top: 50px;
+}
+
+.listChaptersAdmin select {
+    width: 400px;
+}
+
+.modifyChapterDiv {
+    margin-top: 50px;
+}
+
+.modifyChapterItem {
+    margin-bottom: 15px;
+}
+
+.modifyChapterImg img {
+    width: 25%;
+}
+
+#modifyChapterTitle {
+    border-radius: 3px;
+}
+
+#chapterText {
+    width: 100%;
+    height: 540px;
+    border-radius: 3px;
+    resize: none;
+}
+
+#modifyChapterButton {
+    width: 100px;
+    margin-right: 10px;
+    padding: 5px;
+    color: white;
+    background-color: #3273dc;
+    border-style: none;
+    border-radius: 3px;
+}
+
+#modifyChapterButton:hover {
+    background-color: #191f51;
+}
+
+#deleteChapterButton {
+    width: 100px;
+    padding: 5px;
+    color: white;
+    background-color: red;
+    border-style: none;
+    border-radius: 3px;
 }
 
 

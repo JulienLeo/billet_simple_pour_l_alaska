@@ -13,14 +13,6 @@
         //require 'view/frontend/home.php';
     }
 
-    function listChaptersNav() {
-        $chapterManager = new billet_simple\model\ChapterManager(); // création d'un objet qui récupèrera les données d'un chapitre
-        $navList = $chapterManager->getChapters(); // appel de la fonction créant la liste des chapitres
-
-        return $navList;
-    }
-
-
 
     // PAGE CHAPITRE
     function chapter() {

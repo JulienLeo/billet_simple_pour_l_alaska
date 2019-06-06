@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link rel="stylesheet" href="public/css/style.css">
     </head>
 
@@ -22,7 +23,7 @@
                         <form action="post" method="post">
                             <select class="chapterSelection" name="chapterSelection" id="chapterSelection" onchange="location=this.value">
                                 <option selected disabled >Chapitres</option>
-                                {% for chapter in chapters %}
+                                {% for chapter in navList %}
                                     <option class="selection" value="index.php?action=chapter&amp;id={{ chapter.id }}">
                                         {{ chapter.id ~ '. ' ~ chapter.title }}
                                     </option>

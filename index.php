@@ -35,16 +35,16 @@
             break;*/
         
         case 'home' : 
-            echo $twig->render('home.php', ['chapters' => listChapters()]);
+            echo $twig->render('home.php', ['chapters' => listChapters(), 'navList' => listChapters()]);
             break;
 
 
         case 'chapter' :
-            echo $twig->render('chapterView.php', ['chapter' => chapter(), 'nextChapter' => nextChapter()/*, 'comments' => getComments(), 'postComment' => postComment()*/]); // + nextChapter() + getComments() + postComment() + alertComment()
+            echo $twig->render('chapterView.php', ['chapter' => chapter(), 'nextChapter' => nextChapter(), 'navList' => listChapters(), 'comments' => chapter()/*, 'postComment' => postComment()*/]); // + nextChapter() + getComments() + postComment() + alertComment()
             break;
         
         case 'author' : 
-            echo $twig->render('authorView.php');
+            echo $twig->render('authorView.php', ['navList' => listChapters()]);
             break;
         
         default : 

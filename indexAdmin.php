@@ -1,7 +1,7 @@
 <?php
 
     require 'vendor/autoload.php';
-    require 'controller/frontend.php';
+    require 'controller/admin_frontend.php';
     require 'model/TwigExtensions.php';
 
     ob_start();
@@ -36,9 +36,21 @@
         case 'addChapter' : 
             echo $twig->render('addChapter.php'/*, ['chapter' => addChapter()]*/);
             break;
-        
+
+        case 'adminListChapters' : 
+            echo $twig->render('adminListChapters.php', ['chaptersAdmin' => listChaptersAdmin()]);
+            break;
+
         case 'modifyChapter' : 
-            echo $twig->render('modifyChapter.php'/*, ['editedChapter' => editChapter()]*/); // + listChapters()
+            echo $twig->render('modifyChapter.php', ['chapter' => chapterAdmin() /*'editedChapter' => editChapter()*/]); // + listChapters()
+            break;
+
+        case 'editChapter' : 
+            echo $twig->render('editChapter.php', ['edited' => modifyChapterAdmin()]);
+            break;
+
+        case 'deleteChapter' : 
+            echo $twig->render('deleteChapter.php', ['delete' => removeChapterAdmin()]);
             break;
 
         case 'adminComments' : 

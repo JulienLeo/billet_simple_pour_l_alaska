@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36c7314b889dc87317f0d86e2f2393fe",
+    "content-hash": "e2cfcf44a872a9eb2e3a6cd26c10cbd0",
     "packages": [
         {
             "name": "ramsey/pygments",

@@ -38,7 +38,7 @@
             return $chapter;
         }
 
-        public function editChapter($chapterId) {
+        public function editChapterAdmin($chapterId) {
             $db = $this->dbConnect();
 
             $req = $db->prepare('UPDATE chapters SET content = ? WHERE id = ?');
@@ -50,7 +50,7 @@
             return $chapter;
         }
 
-        public function deleteChapter($chapterId) {
+        public function deleteChapterAdmin($chapterId) {
             $db = $this->dbConnect();
 
             $req = $db->prepare('DELETE FROM chapters WHERE id = ?');
