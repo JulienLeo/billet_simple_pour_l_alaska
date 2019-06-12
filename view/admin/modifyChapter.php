@@ -24,19 +24,19 @@
     </div>
     
     <div class="modifyChapterDiv">
-        <div class="modifyChapterItem modifyChapterImg">
+        <div class="modifyItem modifyChapterImg">
             <img src="public/img/chapter_img/{{ chapter.img_url }}" alt="une peinture de paysage enneigé">
         </div>
-        <div class="modifyChapterItem modifyChapterTitle">
+        <div class="modifyItem modifyChapterTitle">
             <input type="text" id="modifyChapterTitle" name="modifyChapterTitle" value="{{ chapter.title }}" />
         </div>
-        <div class="modifyChapterItem modifyChapterContent">
+        <div class="modifyItem modifyChapterContent">
             <textarea name="chapterText" id="chapterText">{{ chapter.content }}</textarea>
         </div>
 
-        <div class="modifyChapterItem modifyChapterItemButtons">
-            <a href="indexAdmin.php?p=editChapter&amp;id={{ chapter.id }}"><input type="submit" id="modifyChapterButton" value="Modifier" /></a>
-            <a href="indexAdmin.php?p=deleteChapter&amp;id={{ chapter.id }}"></a><input type="submit" id="deleteChapterButton" value="Supprimer" /></a>
+        <div class="modifyItem modifyChapterItemButtons">
+            <a href="indexAdmin.php?p=editChapter&amp;id={{ chapter.id }}"><input type="submit" id="modifyButton" value="Modifier" /></a>
+            <a href="indexAdmin.php?p=deleteChapter&amp;id={{ chapter.id }}"></a><input type="submit" id="deleteButton" value="Supprimer" /></a>
             <p>(Toute modification ou suppression sera définitive)</p>
         </div>
     </div>

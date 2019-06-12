@@ -1,11 +1,27 @@
 /* RESET ? 
 */
-body {
-    margin: 0;
+
+/* POLICES UTILISEES */
+@font-face {
+    font-family: 'hind_light';
+    src: url('../fonts/hind/hind_light/hind-light-webfont.eot');
+    src: url('../fonts/hind/hind_light/hind-light-webfont.eot#iefix') format('embedded-opentype'),
+         url('../fonts/hind/hind_light/hind-light-webfont.woff') format('woff'),
+         url('../fonts/hind/hind_light/hind-light-webfont.ttf') format('truetype');
 }
 
-/* POLICES UTILISEES 
-*/
+@font-face {
+    font-family: 'hind_regular';
+    src: url('../fonts/hind/hind_regular/hind-regular-webfont.eot');
+    src: url('../fonts/hind/hind_regular/hind-regular-webfont.eot#iefix') format('embedded-opentype'),
+         url('../fonts/hind/hind_regular/hind-regular-webfont.woff') format('woff'),
+         url('../fonts/hind/hind_regular/hind-regular-webfont.ttf') format('truetype');
+}
+
+body {
+    font-family: 'hind_light', 'hind_regular';
+    margin: 0;
+}
 
 
 /* TITRE ET NOM DE L'AUTEUR */
@@ -181,6 +197,59 @@ footer {
 #contactTitle {
     margin : 0;
 }
+
+
+/* PAGE IDENTIFICATION ADMIN */
+
+.signInContainer {
+    height: 90vh;
+    margin: 20px;
+}
+
+.signInDiv {
+    text-align: center;
+}
+
+.signInDiv input {
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.usernameDiv input, .passwordDiv input {
+    font-size: 1.5em;
+    border: 1px solid grey;
+    border-radius: 6px;
+}
+
+.usernameDiv input:focus, .passwordDiv input:focus {
+    border: 1px solid #3273dc;
+    border-radius: 6px;
+    outline: none;
+}
+
+.validAdmin input {
+    height: 35px;
+    color: white;
+    background-color: #3273dc;
+    border-style: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.validAdmin input:hover {
+    background-color: #191f51;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media screen and (min-width: 1088px) {

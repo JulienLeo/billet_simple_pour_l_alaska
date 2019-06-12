@@ -1,7 +1,7 @@
 {% extends 'sidebar.php' %}
 
 {% block head %}
-    <title>Suppression du chapitre {{ chapter.title }}</title>
+    <title>Gestion des commentaires du chapitre {{ chapter.title }}</title>
 {% endblock %}
 
 {% block sidebar %}
@@ -19,15 +19,19 @@
 
 {% block main %}
     <div class="pageTitle">
-        <i class="far fa-edit"></i>
-        <h2>Modification/suppression d'un chapitre</h2>
+        <i class="far fa-comment-dots"></i>
+        <h3>Gestion des commentaires du chapitre</h3>
+        <h2>'{{ chapter.title }}'</h2>
     </div>
-    
-    <div class="modifyChapterDiv">
-       <div class="deleteConfirmation">
-           <p><h3>Le chapitre a bien été supprimé.</h3></p>
-           <p><a href="indexAdmin.php?p=adminListChapters">Retour à la modification/suppression des chapitres</a></p>
-           <p><a href="indexAdmin.php?p=admin">Retour à l'accueil</a></p>
-       </div>
+
+    <div class="listComments">
+        {% for comments in chapterComments %}
+            <div class="comment">
+                <a href="indexAdmin.php?p=adminChapterComment&amp;id={{ chapterComments.id }}">
+                    <p class="commentComment">{{chapterComments.comment}}</p>
+                    <p class="authorComment">{{chapterComments.author_comment}}</p>
+                </a>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

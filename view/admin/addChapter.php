@@ -26,15 +26,15 @@
 
         <form action="" method="post">
             <div class="addChapterDivItem">
-                <input type="file" name="imgFile" id="imgFile" accept="image/png" />
+                <input type="file" name="imgFile" id="imgFile" accept="image/png" required/>
             </div>
 
             <div class="addChapterDivItem">
-                <input type="text" id="addChapterTitle" name="addChapterTitle" placeholder="Titre"/>
+                <input type="text" id="addChapterTitle" name="addChapterTitle" placeholder="Titre" required/>
             </div>
 
             <div class="addChapterDivItem">
-                <textarea name="addChapterContent" id="addChapterContent" placeholder="Ajoutez le chapitre ici"></textarea>
+                <textarea name="addChapterContent" id="addChapterContent" placeholder="Ajoutez le chapitre ici" required></textarea>
             </div>
 
             <div class="addChapterDivItem">

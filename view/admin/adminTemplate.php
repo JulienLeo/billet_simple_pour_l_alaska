@@ -22,7 +22,7 @@
             {% block content %}{% endblock %}
         </div>
         <footer>
-            <p><a href="#top">Retour en haut de page</a></p>
+            <p class="footerLinks"><a href="#top">Retour en haut de page</a> - <a href="index.php?p=home">Retour sur le site</a></p>
             <p>&copy; 2019 Julien Leo</p>
         </footer>
     </body>

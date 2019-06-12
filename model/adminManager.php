@@ -45,10 +45,10 @@
 
             $req->execute(array($chapterId));
 
-            $chapter = $req->fetch();
+            /*$chapter = $req->fetch();
 
             return $chapter;
-        }
+        */}
 
         public function deleteChapterAdmin($chapterId) {
             $db = $this->dbConnect();
@@ -56,8 +56,6 @@
             $req = $db->prepare('DELETE FROM chapters WHERE id = ?');
 
             $req->execute(array($chapterId));
-
-            $chapter = $req->fetch();
         }
 
 
@@ -76,13 +74,22 @@
         public function getCommentAdmin($commentId) {
             $db = $this->dbConnect();
 
-            $req = $db->prepare('SELECT id, author_comment, comment, DATE_FORMAT(date_comment, "%d-%m-%y") AS date_comment_fr FROM comments WHERE chapter_id = ?');
+            $req = $db->prepare('SELECT id, author_comment, comment, DATE_FORMAT(date_comment, "%d-%m-%y") AS date_comment_fr FROM comments WHERE chapter_id = ? ORDER BY date_comment');
 
             $req->execute(array($commentId));
 
             $comment = $req->fetch();
 
             return $comment;
+        }
+
+        public function getReportedCommentsAdmin() {
+            $db = $this->dbConnect();
+
+            $req = $db->prepare('SELECT id, author_comment, comment, DATE_FORMAT(date_comment, "%d-%m-%y") AS date_comment_fr FROM comments WHERE moderate IS NOT NULL');
+
+            $reportedComments = $req->fetch();
+            return $reportedComments;
         }
 
         public function editComment($commentId) {

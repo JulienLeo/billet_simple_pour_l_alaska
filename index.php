@@ -47,6 +47,10 @@
             echo $twig->render('authorView.php', ['navList' => listChapters()]);
             break;
         
+        case 'admin' :
+            echo $twig->render('signInView.php');
+            break;
+        
         default : 
             header('HTTP/1.0 404 Not Found');
             echo $twig->render('404.php');

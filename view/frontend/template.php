@@ -41,7 +41,7 @@
         </div>
 
         <footer>
-            <p><a href="#top">Retour en haut de page</a></p>
+            <p><a href="#top">Retour en haut de page</a> - <a href="index.php?action=admin">Admin</a></p>
             <p>&copy; 2019 Julien Leo</p>
         </footer>
     </body>
