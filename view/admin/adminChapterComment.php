@@ -24,17 +24,13 @@
         <h2>'{{ chapter.title }}'</h2>
     </div>
     <div class="selectedComment">
-        <div class="modifyItem modifyChapterTitle">
-            <input type="text" id="modifyChapterTitle" name="modifyChapterTitle" value="{{ chapterComments.author }}" />
-        </div>
-        
         <div class="modifyItem modifyCommentContent">
-            <textarea name="commentText" id="commentText">{{ chapterComments.comment }}</textarea>
+            <textarea name="commentText" id="commentText">{{ comment.comment }}</textarea>
         </div>
 
         <div class="modifyItem modifyCommentItemButtons">
-            <a href="indexAdmin.php?p=editComment&amp;id={{ chapterComments.id }}"><input type="submit" id="modifyButton" value="Modifier" /></a>
-            <a href="indexAdmin.php?p=deleteComments&amp;id={{ chapterComments.id }}"></a><input type="submit" id="deleteButton" value="Supprimer" /></a>
+            <a href="indexAdmin.php?p=editComment&amp;id={{ comment.id }}"><input type="submit" id="modifyButton" value="Modifier" /></a>
+            <a href="indexAdmin.php?p=deleteComments&amp;id={{ comment.id }}"></a><input type="submit" id="deleteButton" value="Supprimer" /></a>
             <p>(Toute modification ou suppression sera définitive)</p>
         </div>
     </div>

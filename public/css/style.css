@@ -56,6 +56,10 @@ ul.menu {
     color: white;
 }
 
+.nav-item select {
+    font-family: 'hind_light', 'hind_regular';
+}
+
 .chapterSelection {
     font-size: 1em;
     color: #3273dc;
@@ -123,6 +127,18 @@ footer {
     margin: 8px;
 }
 
+#nextChapter {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 1.17em;
+    color: #3273dc;
+}
+
+#nextChapter a:hover {
+    color: #191f51;
+    text-decoration: underline;
+}
+
 
 /* COMMENTAIRE */
 .commentsDiv {
@@ -136,12 +152,14 @@ footer {
 }
 
 #author {
+    border: 1px #515151 solid;
     border-radius: 3px;
     display: flex;
 }
 
 #comment {
     resize: none;
+    border: 1px #515151 solid;
     border-radius: 3px;
     width: 100%;
     height: 100px;
@@ -149,14 +167,44 @@ footer {
     margin-bottom: 5px;
 }
 
+
+#addButton {
+    width: 100px;
+    margin-top: 20px;
+    padding: 5px;
+    font-family: 'hind_light';
+    font-size: 0.85em;
+    color: #515151;
+    background-color: white;
+    border: 2px #515151 solid;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#addButton:hover {
+    color: #333333;
+    text-decoration: underline;
+    border: 2px #333333 solid;
+}
+
 .commentDiv {
-    border: 1px solid black;
+    margin-bottom: 10px;
+    border: 1px solid #515151;
     border-radius: 5px;
 }
 .commentDiv p {
     margin: 10px;
 }
 
+#reportParaph a {
+    font-size: 0.75em;
+    color: #515151;
+}
+
+#reportParaph a:hover {
+    color: #333333;
+    text-decoration: underline;
+}
 
 /* PAGE AUTEUR */
 .authorBio h2 {

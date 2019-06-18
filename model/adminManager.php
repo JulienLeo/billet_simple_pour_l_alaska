@@ -7,12 +7,12 @@
 
         // CHAPITRES
 
-        public function postChapter() {
+        public function postChapter($title, $content, $img_url) {
             $db = $this->dbConnect();
 
             $chapter = $db->prepare('INSERT INTO chapters(title, content, img_url, addition_date) VALUE (?, ?, ?, NOW())');
 
-            $affectedLines = $chapter->execute(array());
+            $affectedLines = $chapter->execute(array($title, $content, $img_url));
 
             return $affectedLines;
         }
@@ -64,7 +64,7 @@
         public function getCommentsAdmin($chapterId) { // récupération des commentaires d'un chapitre précis
             $db = $this->dbConnect();
     
-            $comments = $db->prepare('SELECT id, author_comment, comment, DATE_FORMAT(date_comment, "%d-%m-%y à %H-%i") AS date_comment_fr FROM comments WHERE chapter_id = ? ORDER BY date_comment DESC');
+            $comments = $db->prepare('SELECT id, author_comment, comment, DATE_FORMAT(date_comment, "%d/%m/%y à %H:%i") AS date_comment_fr FROM comments WHERE chapter_id = ? ORDER BY date_comment DESC');
     
             $comments->execute(array($chapterId));
     
@@ -98,10 +98,6 @@
             $req = $db->prepare('UPDATE comments SET comment = ? WHERE id = ?');
 
             $req->execute(array($commentId));
-
-            $affectedLines = $req->fetch();
-
-            return $affectedLines;
         }
 
         public function deleteComment($commentId) {

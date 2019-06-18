@@ -1,7 +1,7 @@
 {% extends 'sidebar.php' %}
 
 {% block head %}
-    <title>Gestion des commentaires du chapitre {{ chapter.title }}</title>
+    <title>Ajout d'un chapitre</title>
 {% endblock %}
 
 {% block sidebar %}
@@ -19,16 +19,14 @@
 
 {% block main %}
     <div class="pageTitle">
-        <i class="far fa-comment-dots"></i>
-        <h3>Gestion des commentaires du chapitre</h3>
-        <h2>'{{ chapter.title }}'</h2>
+        <i class="fas fa-align-justify"></i>
+        <h2>Ajouter un chapitre</h2>
     </div>
-
-    <div class="listComments">
-        {% for comment in chapterComments %}
-            <div class="comment">
-                <p>"{{comment.comment}}" écrit par {{comment.author_comment}} le {{comment.date_comment_fr}} <a href="indexAdmin.php?p=adminChapterComment&amp;id={{ chapter.id }}"><i>Éditer</i></a></p>
-            </div>
-        {% endfor %}
+    <div class="addedChapterDiv">
+       <div class="addingConfirmation">
+           <p><h3>Le chapitre {{ chapter.title }} a bien été ajouté.</h3></p>
+           <p><a href="indexAdmin.php?p=addChapter">ajouter un nouveau chapitre</a></p>
+           <p><a href="indexAdmin.php?p=admin">Retour à l'accueil</a></p>
+       </div>
     </div>
 {% endblock %}

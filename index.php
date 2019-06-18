@@ -4,7 +4,7 @@
     require 'controller/frontend.php';
     require 'model/TwigExtensions.php';
 
-    ob_start();
+    
 
     $page = 'home';
 
@@ -40,9 +40,19 @@
 
 
         case 'chapter' :
-            echo $twig->render('chapterView.php', ['chapter' => chapter(), 'nextChapter' => nextChapter(), 'navList' => listChapters(), 'comments' => chapter()/*, 'postComment' => postComment()*/]); // + nextChapter() + getComments() + postComment() + alertComment()
+            echo $twig->render('chapterView.php', ['chapter' => chapter(), 'nextChapter' => nextChapter(), 'navList' => listChapters(), 'comments' => listComments()]); // + nextChapter()
             break;
         
+        case 'addComment' : 
+            addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+            echo $twig->render('chapterView.php', ['chapter' => chapter(), 'nextChapter' => nextChapter(), 'navList' => listChapters(), 'comments' => listComments()]);
+            break;
+        
+        case 'reportComment' : 
+            alertComment($_GET['id']);
+            echo $twig->render('chapterView.php', ['chapter' => chapter(), 'nextChapter' => nextChapter(), 'navList' => listChapters(), 'comments' => listComments()]);
+            break;
+            
         case 'author' : 
             echo $twig->render('authorView.php', ['navList' => listChapters()]);
             break;
@@ -55,7 +65,4 @@
             header('HTTP/1.0 404 Not Found');
             echo $twig->render('404.php');
             break;
-    }
-
-
-// ob_get_clean();    
+    }   

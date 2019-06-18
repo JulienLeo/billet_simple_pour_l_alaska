@@ -33,8 +33,13 @@
             echo $twig->render('admin.php');
             break;
         
-        case 'addChapter' : 
-            echo $twig->render('addChapter.php', ['chapter' => addChapterAdmin($title, $content, $img_url)]);
+        case 'addChapter' :
+            echo $twig->render('addChapter.php');
+            break;
+
+        case 'addedChapter' :
+            addChapterAdmin($_POST['title'], $_POST['content'], $_POST['img_url']);
+            echo $twig->render('addedChapter.php');
             break;
 
         case 'adminListChapters' : 
@@ -42,7 +47,7 @@
             break;
 
         case 'modifyChapter' : 
-            echo $twig->render('modifyChapter.php', ['chapter' => chapterAdmin() /*'editedChapter' => editChapter()*/]); // + listChapters()
+            echo $twig->render('modifyChapter.php', ['chapter' => chapterAdmin()]); // + listChaptersAdmin()
             break;
 
         case 'editChapter' : 
@@ -70,7 +75,7 @@
             break;
 
         case 'adminChapterComment' : 
-            echo $twig->render('adminChapterComment.php', ['chapter' => chapterAdmin(),'chapterComments' => commentsAdmin()]);
+            echo $twig->render('adminChapterComment.php', ['chapter' => chapterAdmin(), 'comment' => commentAdmin()]);
             break;
 
         case 'authorPage' : 

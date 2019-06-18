@@ -15,7 +15,7 @@ header {
     /*position: fixed;*/
 }
 
-.sidebar h2 {
+.sidebar h3 {
     text-align: center;
 }
 
@@ -137,7 +137,7 @@ header {
 
 /* PAGE MODIFICATION/SUPPRESSION CHAPITRE */
 .listChaptersAdmin {
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 .listChaptersAdmin select {
@@ -197,6 +197,14 @@ header {
     border-radius: 3px;
     resize: none;
     margin-top: 30px;
+}
+
+.listComments, .selectedComment {
+    margin-top: 80px;
+}
+
+.listComments a {
+    font-size: 0.8em;
 }
 
 
