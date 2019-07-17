@@ -30,27 +30,24 @@
     $twig->addGlobal('current_page', $page);
 
     switch ($page) {
-        /*case 'contact' :
-            echo $twig->render('contact.php');
-            break;*/
         
         case 'home' : 
-            echo $twig->render('home.php', ['chapters' => listChapters(), 'navList' => listChapters()]);
+            echo $twig->render('home.php', ['navList' => listChapters(), 'chapters' => listChapters()]);
             break;
 
 
         case 'chapter' :
-            echo $twig->render('chapterView.php', ['chapter' => chapter(), 'nextChapter' => nextChapter(), 'navList' => listChapters(), 'comments' => listComments()]); // + nextChapter()
+            echo $twig->render('chapterView.php', ['navList' => listChapters(), 'chapter' => chapter($_GET['id']), 'comments' => listComments($_GET['id'])]);
             break;
         
         case 'addComment' : 
-            addComment($_GET['id'], $_POST['author'], $_POST['comment']);
-            echo $twig->render('chapterView.php', ['chapter' => chapter(), 'nextChapter' => nextChapter(), 'navList' => listChapters(), 'comments' => listComments()]);
+            addComment($_GET['id'], htmlspecialchars($_POST['author']), htmlspecialchars($_POST['comment']));
+            echo $twig->render('chapterView.php', ['chapter' => chapter($_GET['id']), 'navList' => listChapters(), 'comments' => listComments($_GET['id'])]);
             break;
         
         case 'reportComment' : 
-            alertComment($_GET['id']);
-            echo $twig->render('chapterView.php', ['chapter' => chapter(), 'nextChapter' => nextChapter(), 'navList' => listChapters(), 'comments' => listComments()]);
+            alertComment($_POST['commentId']);
+            echo $twig->render('chapterView.php', ['chapter' => chapter($_POST['id']), 'navList' => listChapters(), 'comments' => listComments($_POST['id'])]);
             break;
             
         case 'author' : 

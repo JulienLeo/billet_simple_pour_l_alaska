@@ -15,24 +15,16 @@
 
 
     // PAGE CHAPITRE
-    function chapter() {
+    function chapter($id) {
         $chapterManager = new billet_simple\model\ChapterManager(); // création d'un objet qui récupèrera les données d'un chapitre
-        $chapter = $chapterManager->getChapter($_GET['id']); // appel de la fonction qui sélectionne le chapitre selon son id
+        $chapter = $chapterManager->getChapter($id); // appel de la fonction qui sélectionne le chapitre selon son id
         
         return $chapter;
     }
 
-    function nextChapter() {
-        $one = 1;
-        //$chapter = $chapterManager->getChapter($_GET['id']); // appel de la fonction qui sélectionne le chapitre selon son id
-        //$nextChapter = $chapter + $one;
-
-        //return $nextChapter;
-    }
-
-    function listComments() {
+    function listComments($id) {
             $commentManager = new billet_simple\model\CommentManager(); // création d'un objet qui récupèrera les données des commentaires
-            $comments = $commentManager->getComments($_GET['id']); // appel de la fonction qui sélectionne les commentaires selon l'id du chapitre
+            $comments = $commentManager->getComments($id); // appel de la fonction qui sélectionne les commentaires selon l'id du chapitre
     
             return $comments;
     }
@@ -53,4 +45,10 @@
         $reportedComment = $commentManager->reportComment($commentId);
         
         return $reportedComment;
+    }
+
+
+    // PAGE ADMIN 
+    function signIn($admin, $password) {
+        
     }

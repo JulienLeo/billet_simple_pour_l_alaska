@@ -25,4 +25,16 @@
     
             return $chapter;
         }
+
+        public function nextChapter($chapterId) { // chapitre suivant selon l'id du chapitre en cours
+            $db = $this->dbConnect();
+    
+            $req = $db->prepare('SELECT id, title, content, img_url, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters WHERE id = ?');
+            
+            $req->execute(array($chapterId));
+            
+            $chapter = $req->fetch();
+    
+            return $chapter;
+        }
     }

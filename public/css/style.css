@@ -18,6 +18,14 @@
          url('../fonts/hind/hind_regular/hind-regular-webfont.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'garogier';
+    src: url('../fonts/garogier/garogier-webfont.eot');
+    src: url('../fonts/garogier/garogier-webfont.eot#iefix') format('embedded-opentype'),
+         url('../fonts/garogier/garogier-webfont.woff') format('woff'),
+         url('../fonts/garogier/garogier-webfont.ttf') format('truetype');
+}
+
 body {
     font-family: 'hind_light', 'hind_regular';
     margin: 0;
@@ -26,14 +34,21 @@ body {
 
 /* TITRE ET NOM DE L'AUTEUR */
 header {
+    position: fixed;
+    width: 100%;
     text-align: center;
     background-color: black;
     color: white;
+    z-index: 100;
 }
 
 header h1 {
     font-size: 2em;
     font-weight: bold;
+}
+
+header h1, h2 {
+    font-family: 'garogier', 'hind_light', 'hind_regular';
 }
 
 #bookAuthor {
@@ -81,6 +96,17 @@ ul.menu {
     cursor: pointer !important;
 }
 
+/* TEMPLATE */
+.container {
+    padding-top: 110px;
+}
+
+/* FOOTER */
+footer {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
 
 
 /* AFFICHAGE DE LA LISTE DES CHAPITRES */
@@ -89,7 +115,7 @@ ul.menu {
 }
 
 .borderedText {
-    border: 4px double black;
+    border: 4px double #515151;
     border-radius: 5px;
     margin: 20px;
     padding: 5px;
@@ -107,6 +133,11 @@ ul.menu {
     margin: 5px;
 }
 
+.textContent a:hover {
+    color: #3273dc;
+    text-decoration: underline;
+}
+
 .listChapters h3 {
     margin: 5px;
     font-size: 1.17em;
@@ -114,17 +145,23 @@ ul.menu {
 }
 
 
-/* FOOTER */
-footer {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-}
-
-
 /* PAGE CHAPITRE */
 .chapterDiv {
     margin: 8px;
+    margin-bottom: 50px;
+}
+
+.imgDiv {
+    text-align: center;
+}
+
+.imgDiv img {
+    width: 40%;
+}
+
+#goToComments {
+    position: absolute;
+    right: 10px;
 }
 
 #nextChapter {
@@ -139,16 +176,34 @@ footer {
     text-decoration: underline;
 }
 
+#endChapter {
+    margin-top: 30px;
+}
+
 
 /* COMMENTAIRE */
 .commentsDiv {
+    position: relative;
     margin: 8px;
+}
+
+#target {
+    position: absolute;
+    top: -120px;
 }
 
 .commentsDiv h3 {
     font-size: 1.17em;
     font-weight: bold;
-    margin: .83em 0;
+    margin-bottom: 10px;
+}
+
+#commentForm {
+    margin-bottom: 50px;
+}
+
+.postedComments {
+    margin-bottom: 30px;
 }
 
 #author {
@@ -193,18 +248,30 @@ footer {
     border-radius: 5px;
 }
 .commentDiv p {
-    margin: 10px;
+    margin: 10px 10px 5px 10px;
 }
 
-#reportParaph a {
+.commentDiv form {
+    margin: 0px 0px 5px 5px;
+}
+
+.commentDiv button {
     font-size: 0.75em;
+    border-style: none;
     color: #515151;
+    background-color: white;
 }
 
-#reportParaph a:hover {
+.commentDiv button:hover {
+    cursor: pointer;
     color: #333333;
     text-decoration: underline;
 }
+
+.commentDiv input {
+    display: none;
+}
+
 
 /* PAGE AUTEUR */
 .authorBio h2 {
@@ -244,48 +311,6 @@ footer {
 
 #contactTitle {
     margin : 0;
-}
-
-
-/* PAGE IDENTIFICATION ADMIN */
-
-.signInContainer {
-    height: 90vh;
-    margin: 20px;
-}
-
-.signInDiv {
-    text-align: center;
-}
-
-.signInDiv input {
-    width: 300px;
-    margin-bottom: 10px;
-}
-
-.usernameDiv input, .passwordDiv input {
-    font-size: 1.5em;
-    border: 1px solid grey;
-    border-radius: 6px;
-}
-
-.usernameDiv input:focus, .passwordDiv input:focus {
-    border: 1px solid #3273dc;
-    border-radius: 6px;
-    outline: none;
-}
-
-.validAdmin input {
-    height: 35px;
-    color: white;
-    background-color: #3273dc;
-    border-style: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.validAdmin input:hover {
-    background-color: #191f51;
 }
 
 

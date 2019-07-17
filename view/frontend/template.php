@@ -25,7 +25,7 @@
                                 <option selected disabled >Chapitres</option>
                                 {% for chapter in navList %}
                                     <option class="selection" value="index.php?action=chapter&amp;id={{ chapter.id }}">
-                                        {{ chapter.id ~ '. ' ~ chapter.title }}
+                                        {{ loop.index ~ '. ' ~ chapter.title }}
                                     </option>
                                 {% endfor %}
                             </select>

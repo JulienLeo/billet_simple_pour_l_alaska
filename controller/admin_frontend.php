@@ -24,15 +24,15 @@
 
         $affectedLines = $chapterManagerAdmin->postChapter($title, $content, $img_url);
 
-        if($affectedLines === false) {
+        if ($affectedLines === false) {
             throw new Exception('Impossible d\'ajouter le chapitre');
         }
     }
 
-    function modifyChapterAdmin() {
+    function modifyChapterAdmin($id, $title, $content) {
         $chapterManagerAdmin = new billet_simple\model\AdminManager(); // création d'un objet qui récupèrera les données d'un chapitre
-        
-        $chapterAdmin = $chapterManagerAdmin->editChapterAdmin($_GET['id']); // appel de la fonction qui sélectionne le chapitre selon son id
+
+        $chapterAdmin = $chapterManagerAdmin->editChapterAdmin($id, $title, $content); // appel de la fonction qui modifie le chapitre selon son id et son nouveau contenu
 
         return $chapterAdmin;
     }
@@ -59,7 +59,7 @@
     function commentAdmin() { // consultation d'un commentaire dans la partie admin
         $commentManagerAdmin = new billet_simple\model\AdminManager();
 
-        $commentAdmin = $commentManagerAdmin->getCommentAdmin($_GET['id']); // appel du commentaire par son id
+        $commentAdmin = $commentManagerAdmin->getCommentAdmin($_GET['id'], $_GET['chapterId']); // appel du commentaire par son id
 
         return $commentAdmin;
     }
@@ -67,15 +67,15 @@
     function reportedCommentsAdmin() {
         $commentsManagerAdmin = new billet_simple\model\AdminManager(); // création d'un objet qui récupèrera les données des commentaires
 
-        $commentsAdmin = $commentsManagerAdmin->getReportedCommentsAdmin(); // appel de la fonction qui sélectionne les commentaires selon l'id du chapitre
+        $reportedCommentsAdmin = $commentsManagerAdmin->getReportedCommentsAdmin(); // appel de la fonction qui sélectionne les commentaires selon l'id du chapitre
 
-        return $commentsAdmin;
+        return $reportedCommentsAdmin;
     }
 
-    function modifyCommentAdmin() {
+    function modifyCommentAdmin($id, $comment, $moderate) {
         $commentManagerAdmin = new billet_simple\model\AdminManager();
 
-        $commentAdmin = $commentManagerAdmin->editComment($_GET['id']); // appel du commentaire par son id
+        $commentAdmin = $commentManagerAdmin->editCommentAdmin($id, $comment); // appel du commentaire par son id
 
         return $commentAdmin;
     }
@@ -83,7 +83,7 @@
     function removeCommentAdmin() {
         $commentManagerAdmin = new billet_simple\model\AdminManager();
 
-        $commentAdmin = $commentManagerAdmin->deleteComment($_GET['id']); // appel du commentaire par son id
+        $commentAdmin = $commentManagerAdmin->deleteCommentAdmin($_GET['id']); // appel du commentaire par son id
 
         return $commentAdmin;
     }

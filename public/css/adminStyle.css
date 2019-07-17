@@ -15,7 +15,7 @@ header {
     /*position: fixed;*/
 }
 
-.sidebar h3 {
+.sidebar h2 {
     text-align: center;
 }
 
@@ -28,6 +28,7 @@ header {
 .sidebar li {
     padding: 20px;
     border-bottom: 1px white;
+    font-size: 0.9em;
 }
 
 .sidebar li:hover {
@@ -73,6 +74,32 @@ header {
     margin-top: 10px;
 }
 
+.tox-tinymce {
+    height: 210px !important;
+}
+
+.tox-notifications-container {
+    display: none !important;
+}
+
+.tox-menubar, .tox-mbtn tox-mbtn--select, .tox-menubar button, .tox-toolbar {
+    height: 25px !important;
+    margin: 0 0 0 0 !important;
+}
+
+.tox-tbtn {
+    margin: 0 0 0 0 !important;
+    height: 20px !important;
+}
+
+.tox-toolbar__group {
+    height: 10px !important;
+}
+
+.tox-statusbar__branding, .tox-statusbar__resize-handle {
+    display: none !important;
+}
+
 /* PAGE D'ACCUEIL */
 
 .homeTitle {
@@ -110,8 +137,21 @@ header {
     margin-bottom: 30px;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+#addChapterOrder {
+    width: 35px;
+    border-radius: 3px;
+    border: 1px solid #a9a9a9;
+}
+
 #addChapterTitle {
     border-radius: 3px;
+    border: 1px solid #a9a9a9;
 }
 
 #addChapterContent {
@@ -145,7 +185,7 @@ header {
 }
 
 .modifyChapterDiv {
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 .modifyItem {
@@ -199,11 +239,11 @@ header {
     margin-top: 30px;
 }
 
-.listComments, .selectedComment {
+.listComments, .listReportedComments, .selectedComment {
     margin-top: 80px;
 }
 
-.listComments a {
+.listComments a, .listReportedComments a {
     font-size: 0.8em;
 }
 
@@ -212,6 +252,49 @@ header {
 footer {
     position: absolute;
     width: 100%;
+    left: 0px;
     text-align: center;
     background-color: #3c434f;
+}
+
+
+/* PAGE IDENTIFICATION ADMIN */
+.signInContainer {
+    height: 90vh;
+    margin: 20px;
+}
+
+.signInDiv {
+    text-align: center;
+}
+
+.signInDiv input {
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.usernameDiv input, .passwordDiv input {
+    font-size: 1.5em;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 6px;
+}
+
+.usernameDiv input:focus, .passwordDiv input:focus {
+    border: 1px solid #3273dc;
+    border-radius: 6px;
+    outline: none;
+}
+
+.validAdmin input {
+    height: 35px;
+    color: white;
+    background-color: #3273dc;
+    border-style: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.validAdmin input:hover {
+    background-color: #191f51;
 }

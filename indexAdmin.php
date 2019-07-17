@@ -38,7 +38,7 @@
             break;
 
         case 'addedChapter' :
-            addChapterAdmin($_POST['title'], $_POST['content'], $_POST['img_url']);
+            addChapterAdmin(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['content']), htmlspecialchars($_POST['img_url']));
             echo $twig->render('addedChapter.php');
             break;
 
@@ -51,11 +51,12 @@
             break;
 
         case 'editChapter' : 
-            echo $twig->render('editChapter.php', ['edited' => modifyChapterAdmin()]);
+            modifyChapterAdmin($_GET['id'], htmlspecialchars($_POST['modifyChapterTitle']), htmlspecialchars($_POST['chapterText']));
+            echo $twig->render('editedChapter.php', ['chapter' => chapterAdmin()]);
             break;
 
         case 'deleteChapter' : 
-            echo $twig->render('deleteChapter.php', ['delete' => removeChapterAdmin()]);
+            echo $twig->render('deletedChapter.php', ['delete' => removeChapterAdmin()]);
             break;
 
         case 'adminComments' : 
@@ -71,15 +72,29 @@
             break;
 
         case 'adminChapterComments' : 
-            echo $twig->render('adminChapterComments.php', ['chapter' => chapterAdmin(),'chapterComments' => commentsAdmin()]);
+            echo $twig->render('adminChapterComments.php', ['chapter' => chapterAdmin(), 'chapterComments' => commentsAdmin()]);
             break;
 
-        case 'adminChapterComment' : 
+        case 'adminChapterComment' :
             echo $twig->render('adminChapterComment.php', ['chapter' => chapterAdmin(), 'comment' => commentAdmin()]);
+            break;
+        
+        case 'editComment' : 
+            modifyCommentAdmin($_GET['id'], $_POST['commentText'], NULL);
+            echo $twig->render('editedComment.php');
+            break;
+        
+        case 'deleteComment' : 
+            echo $twig->render('deletedComment.php', ['delete' => removeCommentAdmin()]);
             break;
 
         case 'authorPage' : 
             echo $twig->render('authorPage.php'/*, ['authorPage' => adminAuthor()]*/);
+            break;
+        
+        case 'signIn' : 
+            signingIn($_POST['username'], $_POST['password']);
+            echo $twig->render('admin.php');
             break;
             
         default : 
