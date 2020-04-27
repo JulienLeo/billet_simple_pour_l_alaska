@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <form action="?p=contact">
+    <form action="?action=contact">
         <h2 id="contactTitle">Contact</h2></br>
         <input type="text" name="name" placeholder="Votre nom"></br>
         <input type="email" name="email" placeholder="Votre email"></br>

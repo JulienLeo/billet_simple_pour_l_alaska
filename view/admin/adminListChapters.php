@@ -13,8 +13,8 @@
         <select class="chapterSelection" name="chapterSelection" id="chapterSelection" onchange="location=this.value">
             <option selected disabled >Sélection d'un chapitre</option>
             {% for chapter in chaptersAdmin %}
-                <option class="selection" value="indexAdmin.php?p=modifyChapter&amp;id={{ chapter.id }}">
-                    {{ 'Chapitre ' ~ chapter.id ~ ' : ' ~ chapter.title }}
+                <option class="selection" value="indexAdmin.php?action=modifyChapter&amp;id={{ chapter.id }}">
+                    {{ 'Chapitre ' ~ chapter.chapterNumber ~ ' : ' ~ chapter.title }}
                 </option>
             {% endfor %}
         </select>

@@ -14,8 +14,8 @@
        <div class="editConfirmation">
            <p>{{ content }}</p>
            <p><h4>Le chapitre {{ chapter.title }} a bien été modifié.</h4></p>
-           <p><a href="indexAdmin.php?p=adminListChapters">Retour à la modification/suppression des chapitres</a></p>
-           <p><a href="indexAdmin.php?p=admin">Retour à l'accueil</a></p>
+           <p><a href="indexAdmin.php?action=adminListChapters">Retour à la modification/suppression des chapitres</a></p>
+           <p><a href="indexAdmin.php?action=">Retour à l'accueil</a></p>
        </div>
     </div>
 {% endblock %}

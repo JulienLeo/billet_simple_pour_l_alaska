@@ -2,9 +2,8 @@
 
     require 'vendor/autoload.php';
     require 'controller/frontend.php';
+    require 'controller/admin_frontend.php';
     require 'model/TwigExtensions.php';
-
-    
 
     $page = 'home';
 
@@ -13,10 +12,7 @@
         $page = $_GET['action'];
     }
 
-    // Récupération des chapitres dans la base de données 
-    $db = new PDO('mysql:host=localhost;dbname=blog_ecrivain', 'root', ''); // instance de PDO
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // alerte si la requête échoue
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+    
 
 
     // Rendu du template
@@ -29,33 +25,55 @@
     $twig->addExtension(new Extension());
     $twig->addGlobal('current_page', $page);
 
+    // VARIABLES FRONTEND
+    $frontEnd = new FrontEnd();
+    $listNav = $frontEnd->listChapters();
+    $listHome = $frontEnd->listChapters();
+
     switch ($page) {
         
         case 'home' : 
-            echo $twig->render('home.php', ['navList' => listChapters(), 'chapters' => listChapters()]);
+            echo $twig->render('home.php', ['navList' => $listNav, 'chapters' => $listHome]);
             break;
-
 
         case 'chapter' :
-            echo $twig->render('chapterView.php', ['navList' => listChapters(), 'chapter' => chapter($_GET['id']), 'comments' => listComments($_GET['id'])]);
+            $chapter = $frontEnd->chapter($_GET['id']);
+            $postedComments = $frontEnd->listComments($_GET['id']);
+            echo $twig->render('chapterView.php', ['navList' => $listNav, 'chapter' => $chapter, 'postedComments' => $postedComments]);
             break;
         
-        case 'addComment' : 
-            addComment($_GET['id'], htmlspecialchars($_POST['author']), htmlspecialchars($_POST['comment']));
-            echo $twig->render('chapterView.php', ['chapter' => chapter($_GET['id']), 'navList' => listChapters(), 'comments' => listComments($_GET['id'])]);
+        case 'nextChapter' :
+            $nextChapter = $frontEnd->nextChapter($_GET['id']);
+            $chapter = $frontEnd->chapter($_GET['id']);
+            $postedComments = $frontEnd->listComments($_GET['id']);
+            echo $twig->render('chapterView.php', ['navList' => $listNav, 'chapter' => $chapter, 'postedComments' => $postedComments]);
+            break;
+        
+        case 'addComment' :
+            $addComment = $frontEnd->addComment($_GET['id'], htmlspecialchars($_POST['author']), htmlspecialchars($_POST['comment']));
+            $postedComments = $frontEnd->listComments($_GET['id']);
+            $chapter = $frontEnd->chapter($_GET['id']);
+            echo $twig->render('chapterView.php', ['navList' => $listNav, 'chapter' => $chapter, 'postedComments' => $postedComments]);
             break;
         
         case 'reportComment' : 
-            alertComment($_POST['commentId']);
-            echo $twig->render('chapterView.php', ['chapter' => chapter($_POST['id']), 'navList' => listChapters(), 'comments' => listComments($_POST['id'])]);
+            $chapter = $frontEnd->chapter($_GET['id']);
+            $reportComment = $frontEnd->alertComment($_GET['id'], $_POST['commentId']);
+            $postedComments = $frontEnd->listComments($_GET['id']);
+            echo $twig->render('chapterView.php', ['navList' => $listNav, 'chapter' => $chapter, 'postedComments' => $postedComments]);
             break;
             
         case 'author' : 
-            echo $twig->render('authorView.php', ['navList' => listChapters()]);
+            echo $twig->render('authorView.php', ['navList' => $listNav]);
             break;
         
         case 'admin' :
             echo $twig->render('signInView.php');
+            break;
+
+        case 'logOut' : 
+            $logOut = $frontEnd->logOut();
+            echo $twig->render('home.php', ['navList' => $listNav, 'chapters' => $listHome]);
             break;
         
         default : 

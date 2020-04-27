@@ -1,7 +1,7 @@
 {% extends 'sidebar.php' %}
 
 {% block head %}
-    <title>Gestion des commentaires du chapitre '{{ chapter.title }}'</title>
+    <title>Gestion des commentaires signalés</title>
 {% endblock %}
 
 {% block main %}
@@ -11,11 +11,13 @@
     </div>
 
     <div class="listReportedComments">
-    {% for reportedComment in reportedComments %}
+        {% for reportedComment in reportedComments %}
             <div class="reportedComment">
-                <h4>Commentaire de {{ reportedComment.author_comment }}</h4>
-                <p>{{ reportedComment.comment }} <a href="indexAdmin.php?p=adminChapterComment&amp;id={{ reportedComment.id }}&amp;chapterId={{ chapter.id }}"><i>Modifier</i></a></p>
+                <h4>Commentaire de {{ reportedComment.author_comment }} (chapitre {{ reportedComment.title }})</h4>
+                <p>"{{ reportedComment.comment }}" <a href="indexAdmin.php?action=adminChapterComment&amp;id={{ reportedComment.commentId }}&amp;chapterId={{ reportedComment.chapter_id }}"><i>Modifier</i></a> / <a href="index.php?action=chapter&amp;id={{ reportedComment.chapter_id }}#target"><i>Voir la conversation</i></a></p></p>
             </div>
+        {% else %}
+            <h4>Pas de commentaires signalés à l'heure actuelle</h4>
         {% endfor %}
     </div>
 {% endblock %}

@@ -11,7 +11,7 @@
     </div>
     <div class="row homeLogos">
         <div class="col-sm-6">
-            <a href="indexAdmin.php?p=adminListReportedComments">
+            <a href="indexAdmin.php?action=adminListReportedComments">
                 <span class="linkSpanner">
                     <p class="paraLogo"><i class="fas fa-exclamation-circle"></i></p>
                     <p class="paraText">Gérer les commentaires signalés</p>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="col-sm-6">
-            <a href="indexAdmin.php?p=adminListChaptersComments">
+            <a href="indexAdmin.php?action=adminListChaptersComments">
                 <span class="linkSpanner">
                     <p class="paraLogo"><i class="far fa-comment-dots"></i></p>
                     <p class="paraText">Gérer tous les commentaires</p>

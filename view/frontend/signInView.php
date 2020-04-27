@@ -8,15 +8,15 @@
     <body>
         <div class="signInContainer">
             <div class="websiteLinkDiv">
-                <a class="websiteLink" href="index.php?p=home"><i class="fas fa-arrow-circle-left"></i> Retour sur le site</a>
+                <a class="websiteLink" href="index.php?action=home"><i class="fas fa-arrow-circle-left"></i> Retour sur le site</a>
             </div>
             <div class="signInDiv">
-                <form action="indexAdmin.php" method="post">
+                <form action="indexAdmin.php?action=signIn" method="post">
                     <div class="usernameDiv">
-                        <input type="text" id="username" name="username" placeholder="ID" required/>
+                        <input type="text" id="admin" name="admin" placeholder="ID" required/>
                     </div>
                     <div class="passwordDiv">
-                        <input type="text" id="password" name="password" placeholder="Code" required/>
+                        <input type="password" id="password" name="password" placeholder="Code" required/>
                     </div>
                     <div class="validAdmin">
                         <input type="submit" id="validAdminButton" value="Valider"/>

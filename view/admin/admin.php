@@ -7,7 +7,7 @@
     </div>
     <div class="row homeLogos">
         <div class="col-sm-6">
-            <a href="indexAdmin.php?p=addChapter">
+            <a href="indexAdmin.php?action=addChapter">
                 <span class="linkSpanner">
                     <p class="paraLogo"><i class="fas fa-align-justify"></i></p>
                     <p class="paraText">Ajout d'un chapitre</p>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="col-sm-6">
-            <a href="indexAdmin.php?p=adminListChapters">
+            <a href="indexAdmin.php?action=adminListChapters">
                 <span class="linkSpanner">
                     <p class="paraLogo"><i class="far fa-edit"></i></p>
                     <p class="paraText">Modification d'un chapitre</p>
@@ -26,19 +26,10 @@
         
         
         <div class="col-sm-6">
-            <a href="indexAdmin.php?p=adminComments">
+            <a href="indexAdmin.php?action=adminComments">
                 <span class="linkSpanner">
                     <p class="paraLogo"><i class="far fa-comment-dots"></i></p>
                     <p class="paraText">Gestion des commentaires</p>
-                </span>
-            </a>
-        </div>
-        
-        <div class="col-sm-6">
-            <a href="indexAdmin.php?p=authorPage">
-                <span class="linkSpanner">
-                    <p class="paraLogo"><i class="far fa-id-card"></i></p>
-                    <p class="paraText">Page auteur</p>
                 </span>
             </a>
         </div>

@@ -5,68 +5,25 @@
 
     class AdminManager extends Manager {
 
-        public function signingIn($admin, $password) {
+        public function signingIn($admin) {
             $db = $this->dbConnect();
 
-            $signIn = $db->prepare('SELECT admin_name, admin_password FROM admin_list');
+            $user = $db->prepare('SELECT * FROM admin_list WHERE admin_name = ?');
 
-            $signIn->execute(array());
+            $affectedLines = $user->execute(array($admin));
 
-            return $signIn;
-
-            if (isset($_POST['admin_name']) AND $_POST['admin_name'] == 'admin_name' AND isset($_POST['admin_password']) AND $_POST['admin_password'] == 'admin_password') {
-                sleep(1);
-                if (isset($_POST['admin_name']) AND $_POST['admin_name'] == 'admin_name' AND isset($_POST['admin_password']) AND $_POST['admin_password'] == 'admin_password') {
-                    // PAGE A TELECHARGER
-                    // indexAdmin.php
-                } else {
-                    echo 'Impossible de se connecter';
-                    // OU PAGE D'IMPOSSIBILITE DE CONNEXION
-                }
-            } else {
-                echo 'Impossible de se connecter';
-                // OU PAGE D'IMPOSSIBILITE DE CONNEXION
-            }
-
-            // CONDITIONS A METTRE AU BON ENDROIT
-
-            session_start();
-
-            /* if (isset($_SESSION['statut']) AND $_SESSION['statut'] == "administrateur") {
-                echo "Le code secret est 351633135153";
-            }
-
-            else {
-                echo "Vous n'avez pas le droit d'être ici !";
-            }
-
-            {% if is_granted('ROLE_MANAGER') == false %}
-                my message 
-            {% endif %} */
-
-            $password;
-
-            $salt = strlen($password);
-
-            $password =  "jemmo" . $salt . $password . "hoofnye";
-
-            $hashed = hash('sha512', $password);
-
-            if ($password == $hashed) {
-                // OK
-            } else {
-                // CONNEXION IMPOSSIBLE
-            }
+            return $user->fetch();
         }
+
 
         // CHAPITRES
 
-        public function postChapter($title, $content, $img_url) {
+        public function postChapter($title, $chapterNumber, $content, $img_url) {
             $db = $this->dbConnect();
 
-            $chapter = $db->prepare('INSERT INTO chapters(title, content, img_url, addition_date) VALUE (?, ?, ?, NOW())');
+            $chapter = $db->prepare('INSERT INTO chapters(title, chapterNumber, content, img_url, addition_date) VALUE (?, ?, ?, ?, NOW())');
 
-            $affectedLines = $chapter->execute(array($title, $content, $img_url));
+            $affectedLines = $chapter->execute(array($title, $chapterNumber, $content, $img_url));
 
             return $affectedLines;
         }
@@ -75,7 +32,7 @@
 
             $db = $this->dbConnect();
             
-            $req = $db->query('SELECT id, title, content, img_url, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters ORDER BY id');
+            $req = $db->query('SELECT id, chapterNumber, title, content, img_url, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters ORDER BY chapterNumber');
         
             return $req;
         }
@@ -83,24 +40,56 @@
         public function getChapterAdmin($chapterId) { // récupération d'un chapitre précis en fonction de son id
             $db = $this->dbConnect();
     
-            $req = $db->prepare('SELECT id, title, content, img_url, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters WHERE id = ?');
+            $req = $db->prepare('SELECT id, chapterNumber, title, content, img_url, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters WHERE id = ?');
             
             $req->execute(array($chapterId));
             
             $chapter = $req->fetch();
     
             return $chapter;
-        }
+        } 
 
-        public function editChapterAdmin($chapterId, $title, $content) {
+
+
+        // MODIFICATION D'UN CHAPITRE
+
+        public function getCurrentImg($chapterId) { // => à appeler s'il y a modif' de l'image lors d'une modif' de chapitre
             $db = $this->dbConnect();
 
-            $req = $db->prepare('UPDATE chapters SET title = ?, content = ? WHERE id = ?');
+            $req = $db->query('SELECT img_url FROM chapters WHERE id = ?');
 
-            $editedChapter = $req->execute(array($title, $content, $chapterId));
+            $currentImg - $req->execute(array($chapterId));
+
+            return $currentImg;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        public function editChapterAdmin($id, $title, $chapterNumber, $content, $img_url) {
+            $db = $this->dbConnect();
+
+            $req = $db->prepare('UPDATE chapters SET title = ?, chapterNumber = ?, content = ?, img_url = ? WHERE id = ?');
+
+            $editedChapter = $req->execute(array($title, $chapterNumber, $content, $img_url, $id));
 
             return $editedChapter;
         }
+
 
         public function deleteChapterAdmin($chapterId) {
             $db = $this->dbConnect();
@@ -123,24 +112,26 @@
             return $comments;
         }
 
-        public function getCommentAdmin($commentId) {
+        public function getCommentAdmin(/*$commentId, */$chapterId) {
             $db = $this->dbConnect();
 
-            $req = $db->prepare('SELECT id, chapter_id, author_comment, comment, DATE_FORMAT(date_comment, "%d-%m-%y") AS date_comment_fr FROM comments WHERE id = ?');
+            $req = $db->prepare('SELECT id, chapter_id, author_comment, comment, DATE_FORMAT(date_comment, "%d/%m/%y") AS date_comment_fr FROM comments WHERE id = ?');
 
-            $req->execute(array($commentId));
+            $req->execute(array(/*$commentId, */$chapterId));
 
             $comment = $req->fetch();
 
             return $comment;
         }
 
-        public function getReportedCommentsAdmin() {
+        public function getReportedCommentsAdmin($chapterId) {
             $db = $this->dbConnect();
 
-            $reportedComments = $db->prepare('SELECT id, author_comment, comment, DATE_FORMAT(date_comment, "%d/%m/%y à %H:%i") AS date_comment_fr FROM comments WHERE moderate IS NOT NULL ORDER BY id');
+            /*$reportedComments = $db->prepare('SELECT id, chapter_id, author_comment, comment, DATE_FORMAT(date_comment, "%d/%m/%y à %H:%i") AS date_comment_fr FROM comments WHERE moderate IS NOT NULL ORDER BY id');*/
 
-            $reportedComments->execute();
+            $reportedComments = $db->prepare('SELECT comments.id AS commentId, comments.chapter_id, comments.author_comment, comments.comment, chapters.id, chapters.title, DATE_FORMAT(comments.date_comment, "%d/%m/%y à %H:%i") AS date_comment_fr FROM comments INNER JOIN chapters ON comments.chapter_id = chapters.id WHERE comments.moderate IS NOT NULL ORDER BY comments.id');
+
+            $reportedComments->execute(array($chapterId));
             
             return $reportedComments;
         }
@@ -161,9 +152,5 @@
             $req = $db->prepare('DELETE FROM comments WHERE id = ?');
 
             $req->execute(array($commentId));
-        }
-
-        public function adminAuthor() {
-
         }
     }

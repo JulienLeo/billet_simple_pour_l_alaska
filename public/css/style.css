@@ -98,12 +98,14 @@ ul.menu {
 
 /* TEMPLATE */
 .container {
+    min-height: 94vh;
     padding-top: 110px;
 }
 
 /* FOOTER */
 footer {
-    position: absolute;
+    position: relative;
+    bottom: 0;
     width: 100%;
     text-align: center;
 }
@@ -272,6 +274,10 @@ footer {
     display: none;
 }
 
+.commentsDiv span {
+    font-size: 0.75em;
+}
+
 
 /* PAGE AUTEUR */
 .authorBio h2 {
@@ -287,10 +293,26 @@ footer {
     padding: 5px;
 }
 
+/* PAGE ERREUR */
+.div404 {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10%;
+}
+
+.div404 p {
+    margin-top: 20px;
+}
+
+#warningSign404 {
+    margin-top: 0;
+    font-size: 3.5em;
+    color: black;
+}
 
 
-
-/* PAGE CONTACT */
+/* PAGE CONTACT 
 
 .contactForm {
     height: 60%;
@@ -313,14 +335,7 @@ footer {
     margin : 0;
 }
 
-
-
-
-
-
-
-
-
+*/
 
 
 

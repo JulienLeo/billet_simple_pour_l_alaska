@@ -14,8 +14,10 @@
     <div class="listComments">
         {% for comment in chapterComments %}
             <div class="comment">
-                <p>"{{comment.comment}}" écrit par {{comment.author_comment}} le {{comment.date_comment_fr}} <a href="indexAdmin.php?p=adminChapterComment&amp;id={{ comment.id }}&amp;chapterId={{ chapter.id }}"><i>Éditer</i></a></p>
+                <p>"{{ comment.comment }}" écrit par {{ comment.author_comment }} le {{ comment.date_comment_fr }} <a href="indexAdmin.php?action=adminChapterComment&amp;id={{ comment.id }}&amp;chapterId={{ chapter.id }}"><i>Éditer</i></a></p>
             </div>
+        {% else %}
+            <h4>Pas de commentaires sur ce chapitre</h4>
         {% endfor %}
     </div>
 {% endblock %}

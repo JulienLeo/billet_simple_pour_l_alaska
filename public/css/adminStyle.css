@@ -1,6 +1,25 @@
+html, body {
+    overflow: auto;
+}
+
 /* HEADER */
 header {
     text-align: center;
+}
+
+.fa-power-off, #deconnectButton {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+}
+
+#signOut {
+    margin: 0;
+}
+
+#deconnectButton:hover {
+    text-decoration: underline;
 }
 
 /* SIDEBAR */
@@ -12,7 +31,6 @@ header {
 
 .sidebar nav {
     margin-top: 20px;
-    /*position: fixed;*/
 }
 
 .sidebar h2 {
@@ -22,13 +40,13 @@ header {
 .sidebar ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 70px;
+    margin-top: 130px;
 }
 
 .sidebar li {
-    padding: 20px;
+    padding: 30px;
     border-bottom: 1px white;
-    font-size: 0.9em;
+    font-size: 1.25em;
 }
 
 .sidebar li:hover {
@@ -48,14 +66,24 @@ header {
 
 .container {
     max-width: none;
+    min-height: 48em;
     margin-left: 0;
     margin-right: 0;
     background-color: #d9e6fc;
 }
 
-/*.row {
+.row {
     margin-right: 0;
-}*/
+    overflow: auto;
+}
+
+.col-sm-6 {
+    margin-bottom: 50px;
+}
+
+.content {
+    min-height: 52em;
+}
 
 .content h2 {
     margin-top: 20px;
@@ -74,8 +102,14 @@ header {
     margin-top: 10px;
 }
 
-.tox-tinymce {
-    height: 210px !important;
+.addChapterDivItem .tox-tinymce {
+    height: 350px !important;
+    margin-bottom: 30px;
+}
+
+.modifyChapterContent .tox-tinymce {
+    height: 190px !important;
+    margin-bottom: 30px;
 }
 
 .tox-notifications-container {
@@ -96,6 +130,10 @@ header {
     height: 10px !important;
 }
 
+.tox-toolbar__primary {
+    height: 25px !important;
+}
+
 .tox-statusbar__branding, .tox-statusbar__resize-handle {
     display: none !important;
 }
@@ -107,16 +145,16 @@ header {
 }
 
 .homeLogos {
-    margin-top: 80px;
+    margin-top: 150px;
     text-align: center;
 }
 
 .paraLogo {
-    font-size: 40px;
+    font-size: 50px;
 }
 
 .paraText {
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .linkSpanner {
@@ -130,7 +168,7 @@ header {
 /* PAGE AJOUT CHAPITRE */
 
 .addChapterDiv {
-    margin-top: 50px;
+    margin-top: 115px;
 }
 
 .addChapterDivItem {
@@ -174,10 +212,15 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: #191f51;
 }
 
+.addedChapterDiv {
+    margin-top: 115px;
+}
+
 
 /* PAGE MODIFICATION/SUPPRESSION CHAPITRE */
 .listChaptersAdmin {
-    margin-top: 80px;
+    margin-top: 115px;
+    margin-bottom: 18pc;
 }
 
 .listChaptersAdmin select {
@@ -196,19 +239,32 @@ input[type=number]::-webkit-outer-spin-button {
     width: 25%;
 }
 
+#imgFileModification {
+    margin-top: 10px;
+}
+
 #modifyChapterTitle {
     border-radius: 3px;
+    border: 1px solid #a9a9a9;
 }
 
 #chapterText {
     width: 100%;
-    height: 540px;
+    height: 380px;
+    margin-bottom: 60px;
     border-radius: 3px;
     resize: none;
 }
 
+.modifyChapterItemButtons {
+    margin-top: 100px;
+    margin-bottom: 0px;
+}
+
 #modifyButton {
     width: 100px;
+    position: absolute;
+    bottom: 35px;
     margin-right: 10px;
     padding: 5px;
     color: white;
@@ -223,11 +279,24 @@ input[type=number]::-webkit-outer-spin-button {
 
 #deleteButton {
     width: 100px;
+    position: absolute;
+    left: 135px;
+    bottom: 35px;
     padding: 5px;
     color: white;
     background-color: red;
     border-style: none;
     border-radius: 3px;
+}
+
+#modificationCaution {
+    position: absolute;
+    bottom: 0;
+    font-size: small;
+}
+
+.editConfirmation {
+    margin-top: 115px;
 }
 
 /* PAGE MODIFICATION COMMENTAIRE */
@@ -240,21 +309,40 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .listComments, .listReportedComments, .selectedComment {
-    margin-top: 80px;
+    margin-top: 120px;
 }
 
 .listComments a, .listReportedComments a {
     font-size: 0.8em;
 }
 
+.modifyCommentItemButtons {
+    margin-bottom: 0px;
+}
+
 
 /* FOOTER */
 footer {
-    position: absolute;
+    position: relative;
     width: 100%;
+    height: 70px;
+    bottom: 0;
     left: 0px;
     text-align: center;
     background-color: #3c434f;
+    clear: both;
+}
+
+.footerLinks {
+    display: inline;
+}
+
+#logOutFormFooter {
+    display: inline;
+}
+
+.copyright {
+    margin-bottom: 0;
 }
 
 
@@ -262,6 +350,14 @@ footer {
 .signInContainer {
     height: 90vh;
     margin: 20px;
+}
+
+.websiteLink, .websiteLink:visited {
+    color: #3273dc;
+}
+
+.websiteLink:hover {
+    color: #191f51;
 }
 
 .signInDiv {

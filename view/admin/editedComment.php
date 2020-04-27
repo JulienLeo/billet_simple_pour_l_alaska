@@ -12,10 +12,9 @@
     
     <div class="modifyChapterDiv">
        <div class="editConfirmation">
-           <p>{{ content }}</p>
-           <p><h4>Le commentaire du chapitre '{{ chapter.title }}' a bien été modifié.</h4></p>
-           <p><a href="indexAdmin.php?p=adminComments">Retour à la gestion des commentaires</a></p>
-           <p><a href="indexAdmin.php?p=admin">Retour à l'accueil</a></p>
+           <p><h4>Le commentaire de {{ comment.author_comment }} du chapitre {{ chapter.title }} a bien été modifié.</h4></p>
+           <p><a href="indexAdmin.php?action=adminComments">Retour à la gestion des commentaires</a></p>
+           <p><a href="indexAdmin.php?action=">Retour à l'accueil</a></p>
        </div>
     </div>
 {% endblock %}
