@@ -13,7 +13,7 @@
        <div class="addingConfirmation">
            <p><h3>Le chapitre a bien été ajouté.</h3></p>
            <p><a href="indexAdmin.php?action=addChapter">Ajouter un nouveau chapitre</a></p>
-           <p><a href="indexAdmin.php?action=">Retour à l'accueil</a></p>
+           <p><a href="indexAdmin.php?action=home">Retour à l'accueil</a></p>
        </div>
     </div>
 {% endblock %}

@@ -108,7 +108,7 @@ header {
 }
 
 .modifyChapterContent .tox-tinymce {
-    height: 190px !important;
+    height: 340px !important;
     margin-bottom: 30px;
 }
 
@@ -181,6 +181,11 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; 
 }
 
+.error {
+    font-size: 0.6em;
+    font-style: italic;
+}
+
 #addChapterOrder {
     width: 35px;
     border-radius: 3px;
@@ -236,7 +241,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .modifyChapterImg img {
-    width: 25%;
+    width: 200px;
 }
 
 #imgFileModification {

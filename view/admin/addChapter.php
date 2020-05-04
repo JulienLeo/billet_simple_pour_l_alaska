@@ -13,17 +13,17 @@
         <form action="indexAdmin.php?action=addedChapter" method="post" enctype="multipart/form-data">
             <div class="addChapterDivItem">
                 <input type="file" name="img_url" id="imgFile" accept="image/png, image/jpg, image/jpeg"/>
-                <span class="error"><?php echo $addErrorImg; ?></span>
+                <span class="error">* ajout d'une image obligatoire</span>
             </div>
 
             <div class="addChapterDivItem">
-                <input type="number" id="addChapterNumber" name="chapterNumber" placeholder="N°"/>
-                <span class="error"><?php echo $addError;?></span>
+                <input type="number" id="addChapterNumber" name="chapterNumber" placeholder="N°" required/>
+                <span class="error">* champ requis</span>
             </div>
 
             <div class="addChapterDivItem">
-                <input type="text" id="addChapterTitle" name="title" placeholder="Titre"/>
-                <span class="error"><?php echo $addError;?></span>
+                <input type="text" id="addChapterTitle" name="title" placeholder="Titre" required/>
+                <span class="error">* champ requis</span>
             </div>
 
             <div class="addChapterDivItem chapterDivItem">

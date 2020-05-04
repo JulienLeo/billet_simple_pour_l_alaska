@@ -10,7 +10,7 @@
         <h2>Modification/suppression du chapitre {{ chapter.title }}</h2>
     </div>
     
-    <form class="modifyChapterDiv" action="indexAdmin.php?action=editChapter&amp;id={{ chapter.id }}" method="post">
+    <form class="modifyChapterDiv" action="indexAdmin.php?action=editChapter&amp;id={{ chapter.id }}" method="post" enctype="multipart/form-data">
         <div class="modifyItem modifyChapterImg">
             <image src="{{ chapter.img_url }}" id="imgFileModificationImage" alt="une peinture de paysage enneigé"><br>
             <input type="file" name="img_url" id="imgFileModification" accept="image/png, image/jpg, image/jpeg"/>        

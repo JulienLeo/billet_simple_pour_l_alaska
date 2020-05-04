@@ -29,7 +29,6 @@
         }
 
         public function getChaptersAdmin() { // récupération de tous les derniers chapitres
-
             $db = $this->dbConnect();
             
             $req = $db->query('SELECT id, chapterNumber, title, content, img_url, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters ORDER BY chapterNumber');
@@ -53,39 +52,31 @@
 
         // MODIFICATION D'UN CHAPITRE
 
-        public function getCurrentImg($chapterId) { // => à appeler s'il y a modif' de l'image lors d'une modif' de chapitre
+        public function getCurrentImg($id) { // => à appeler s'il y a modif' de l'image lors d'une modif' de chapitre
             $db = $this->dbConnect();
 
-            $req = $db->query('SELECT img_url FROM chapters WHERE id = ?');
+            $req = $db->prepare('SELECT img_url FROM chapters WHERE id = ?');
 
-            $currentImg - $req->execute(array($chapterId));
+            $req->execute(array($id));
+
+            $currentImg = $req->fetch();
 
             return $currentImg;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+    
 
         public function editChapterAdmin($id, $title, $chapterNumber, $content, $img_url) {
             $db = $this->dbConnect();
 
-            $req = $db->prepare('UPDATE chapters SET title = ?, chapterNumber = ?, content = ?, img_url = ? WHERE id = ?');
+            if ($img_url != NULL) {
+                $req = $db->prepare('UPDATE chapters SET title = ?, chapterNumber = ?, content = ?, img_url = ? WHERE id = ?');
 
-            $editedChapter = $req->execute(array($title, $chapterNumber, $content, $img_url, $id));
+                $editedChapter = $req->execute(array($title, $chapterNumber, $content, $img_url, $id));
+            } else {
+                $req = $db->prepare('UPDATE chapters SET title = ?, chapterNumber = ?, content = ? WHERE id = ?');
+
+                $editedChapter = $req->execute(array($title, $chapterNumber, $content, $id));
+            }
 
             return $editedChapter;
         }

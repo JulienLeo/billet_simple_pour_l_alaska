@@ -49,8 +49,13 @@
 
         function addComment($chapterId, $author_comment, $comment) {
             $commentManager = new billet_simple\model\CommentManager();
-            
-            $newComment = $commentManager->postComment($chapterId, $author_comment, $comment);
+
+            if(empty($_POST['author']) || empty($_POST['comment'])) {
+                header("Location: " . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+            } else {
+                $newComment = $commentManager->postComment($chapterId, $author_comment, $comment);
+            }
+
 
             if ($newComment === false) {
                 throw new Exception('Impossible d\'ajouter le commentaire');

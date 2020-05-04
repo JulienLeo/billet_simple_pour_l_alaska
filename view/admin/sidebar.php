@@ -7,7 +7,7 @@
         <nav>
         <h2>Administration</h2>
         <ul>
-            <a href="indexAdmin.php?action="><li>Accueil</li></a>
+            <a href="indexAdmin.php?action=home"><li>Accueil</li></a>
             <a href="indexAdmin.php?action=addChapter"><li>Ajouter un chapitre</li></a>
             <a href="indexAdmin.php?action=adminListChapters"><li>Modifier/supprimer un chapitre</li></a>
             <a href="indexAdmin.php?action=adminComments"><li>Gérer les commentaires</li></a>

@@ -35,7 +35,7 @@
 
     switch ($page) {
 
-        case '' :
+        case 'home' :
             $adminFrontEnd->index();
             echo $twig->render('admin.php');
             break;
@@ -50,7 +50,7 @@
 
         case 'addedChapter' :
             $addChapterAdmin = $adminFrontEnd->addChapterAdmin(htmlspecialchars($_POST['title']), $_POST['chapterNumber'], $_POST['content'], htmlspecialchars($_POST['img_url']));
-            echo $twig->render('addedChapter.php', ['chapter' => $chapter]);
+            echo $twig->render('addedChapter.php', ['chapter' => $chapter, 'error' => $addError, 'errorImg' => $addErrorImg]);
             break;
 
         case 'adminListChapters' : 
@@ -64,6 +64,7 @@
             break;
 
         case 'editChapter' :
+            //$store = $adminFrontEnd->storeImg();
             $modifyChapterAdmin = $adminFrontEnd->modifyChapterAdmin($_GET['id'], htmlspecialchars($_POST['modifyChapterTitle']), $_POST['modifyChapterNumber'], $_POST['modifyChapterContent'], $_POST['img_url']);
             $chapter = $adminFrontEnd->chapterAdmin();
             echo $twig->render('editedChapter.php', ['chapter' => $chapter]);

@@ -14,7 +14,7 @@
        <div class="deleteConfirmation">
            <p><h3>Le commentaire a bien été supprimé.</h3></p>
            <p><a href="indexAdmin.php?action=adminComments">Retour à la modification/suppression des commentaires</a></p>
-           <p><a href="indexAdmin.php?action=">Retour à l'accueil</a></p>
+           <p><a href="indexAdmin.php?action=home">Retour à l'accueil</a></p>
        </div>
     </div>
 {% endblock %}

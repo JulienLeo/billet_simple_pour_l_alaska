@@ -81,21 +81,26 @@
             }
         }
 
+
         function addChapterAdmin($title, $chapterNumber, $content, $img_url) { // ajout d'un chapitre
             $chapterManagerAdmin = new billet_simple\model\AdminManager();
-            $addError = "";
             
             if (empty($_POST['title']) || empty($_POST['chapterNumber'])) {
                 header("Location: " . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-                $addError = "* Ce champ n'a pas été rempli";
             } else {
-                if (!empty($_FILES)) {
+                if (!empty($_FILES) && $_FILES['img_url']['error'] == 0) {
                     $file_name = $_FILES['img_url']['name']; //var_dump($file_name); => string(28) "tess park anton newcombe.png"
                     $file_extension = strrchr($file_name, '.'); //var_dump($file_extension); => string(4) ".png"
-    
+                    $file_extension_nb = strlen($file_extension); //var_dump($file_extension_nb); => int(4);
+                    $file_name_no_extension = substr($file_name, 0, -$file_extension_nb); //var_dump($file_name_no_extension); //=> string(11)
     
                     $file_tmp_name = $_FILES['img_url']['tmp_name']; //var_dump($file_tmp_name); => string(36) "/Applications/MAMP/tmp/php/phpVG122H"
-                    $img_url = 'public/img/chapter_img/' . $file_name; //var_dump($img_url); => string(51) "public/img/chapter_img/tess park anton newcombe.png"
+                    
+                    $new_file_name = round(microtime(true));
+                    //var_dump($new_file_name); //=> string(47) "1588321616"
+
+                    $img_url = 'public/img/chapter_img/' . $file_name_no_extension . '-' . $new_file_name . $file_extension; 
+                    //var_dump($img_url); //string(49) "public/img/chapter_img/beatles1973-1588327326.jpg"
     
                     $authorized_extensions = array('.png', '.PNG', '.jpeg', '.JPEG', '.jpg', '.JPG');
     
@@ -117,31 +122,36 @@
                     /*if (file_exists($chapterNumber)) {
                         throw new Exception('Un chapitre avec ce numéro existe déjà.');
                     }*/
-                } 
+                } else {
+                    header("Location: " . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+                }
             }
         }
 
 
-        /* CHECK SI IL Y A UNE NOUVELLE IMAGE ENVOYEE (A METTRE DANS FONCTION MODIFIER) */
-        function modifyChapterAdmin($id, $title, $chapterNumber, $content, $img_url) {
+        function modifyChapterAdmin($id, $title, $chapterNumber, $content, $img_url) { // modification d'un chapitre
             $chapterManagerAdmin = new billet_simple\model\AdminManager(); // création d'un objet qui récupèrera les données d'un chapitre
-
-            /*if (!empty($_FILES)) {
-                // appel de la fonction qui récupère l'image qui va être modifiée
-                $chapterImage = $chapterManagerAdmin->getCurrentImg($chapterId);
-
+            
+            if (!empty($_FILES) && $_FILES['img_url']['error'] == 0) {
+                $chapterImage = $chapterManagerAdmin->getCurrentImg($id); // variable qui récupère l'image initiale
+                unlink($chapterImage->img_url); // suppression de l'image initiale
 
                 $file_name = $_FILES['img_url']['name']; 
                 $file_extension = strrchr($file_name, '.');
+                $file_extension_nb = strlen($file_extension);
+                $file_name_no_extension = substr($file_name, 0, -$file_extension_nb);
 
                 $file_tmp_name = $_FILES['img_url']['tmp_name']; 
-                $img_url = 'public/img/chapter_img/' . $file_name; 
+                $new_file_name = round(microtime(true));
+
+                $img_url = 'public/img/chapter_img/' . $file_name_no_extension . '-' . $new_file_name . $file_extension;
 
                 $authorized_extensions = array('.png', '.PNG', '.jpeg', '.JPEG', '.jpg', '.JPG');
 
                 if (in_array($file_extension, $authorized_extensions)) {
                     if (move_uploaded_file($file_tmp_name, $img_url) && $_FILES['img_url']['error'] == 0) {
                         $chapterAdmin = $chapterManagerAdmin->editChapterAdmin($id, $title, $chapterNumber, $content, $img_url); // appel de la fonction qui modifie le chapitre selon son id et son nouveau contenu
+                        //$chapterImage = $chapterManagerAdmin->getCurrentImg($id); // variable qui récupère l'image initiale
                         if ($affectedLines === false) {
                             throw new Exception('Impossible d\'ajouter le chapitre');
                         }
@@ -151,47 +161,23 @@
                 } else {
                     throw new Exception('Seuls les fichiers PNG et JPG sont autorisés...');
                 }
-            } else {*/
-                $chapterAdmin = $chapterManagerAdmin->editChapterAdmin($id, $title, $chapterNumber, $content); // appel de la fonction qui modifie le chapitre selon son id et son nouveau contenu
-            //}
+                //unlink($chapterImage->img_url);
+            } else if ($_FILES['img_url']['error']) {
+                $chapterAdmin = $chapterManagerAdmin->editChapterAdmin($id, $title, $chapterNumber, $content, NULL); // appel de la fonction qui modifie le chapitre selon son id et son nouveau contenu
+                $chapterImage = $chapterManagerAdmin->getCurrentImg($id);
+                /*$phrase = "Eat public";
+                $healthy = array("public");
+                $yummy   = array("pizza<br>");
+
+                $newphrase = str_replace($healthy, $yummy, $phrase);
+                var_dump($newphrase);*/
+
+                var_dump("../".$chapterImage->img_url);
+            }
 
             return $chapterAdmin;
         }
 
-
-        function currentImg($id) { // récupérer url image par l'id du chapitre et la stocker dans une variable ($ancienneImage)
-            $ancienneImageAdmin = new billet_simple\model\AdminManager();
-
-            
-        }
-
-
-        public function replaceImg($chapterId) {
-            $db = $this->dbConnect();
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*function modifyChapterAdmin($id, $title, $chapterNumber, $content, $img_url) {
-            $chapterManagerAdmin = new billet_simple\model\AdminManager(); // création d'un objet qui récupèrera les données d'un chapitre
-
-            $chapterAdmin = $chapterManagerAdmin->editChapterAdmin($id, $title, $chapterNumber, $content, $img_url); // appel de la fonction qui modifie le chapitre selon son id et son nouveau contenu
-
-            return $chapterAdmin;
-        }*/
 
         function removeChapterAdmin() {
             $chapterManagerAdmin = new billet_simple\model\AdminManager(); // création d'un objet qui récupèrera les données d'un chapitre
