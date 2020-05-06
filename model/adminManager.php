@@ -82,12 +82,12 @@
         }
 
 
-        public function deleteChapterAdmin($chapterId) {
+        public function deleteChapterAdmin($id) {
             $db = $this->dbConnect();
 
             $req = $db->prepare('DELETE FROM chapters WHERE id = ?');
 
-            $req->execute(array($chapterId));
+            $req->execute(array($id));
         }
 
 

@@ -35,7 +35,7 @@
 
     switch ($page) {
 
-        case 'home' :
+        case '' :
             $adminFrontEnd->index();
             echo $twig->render('admin.php');
             break;
@@ -71,7 +71,7 @@
             break;
 
         case 'deleteChapter' : 
-            $removeChapterAdmin = $adminFrontEnd->removeChapterAdmin();
+            $removeChapterAdmin = $adminFrontEnd->removeChapterAdmin($_GET['id']);
             echo $twig->render('deletedChapter.php', ['delete' => $removeChapterAdmin]);
             break;
 

@@ -33,7 +33,7 @@
             if ($user) {
                 if ($user->admin_password === $password) {
                     $_SESSION['auth'] = $user->id;
-                    var_dump($user);
+                    //var_dump($user);
                     header("Location: indexAdmin.php");
                 }
             }
@@ -133,8 +133,8 @@
             $chapterManagerAdmin = new billet_simple\model\AdminManager(); // création d'un objet qui récupèrera les données d'un chapitre
             
             if (!empty($_FILES) && $_FILES['img_url']['error'] == 0) {
-                $chapterImage = $chapterManagerAdmin->getCurrentImg($id); // variable qui récupère l'image initiale
-                unlink($chapterImage->img_url); // suppression de l'image initiale
+                //$chapterImage = $chapterManagerAdmin->getCurrentImg($id); // variable qui récupère l'image initiale
+                //unlink($chapterImage->img_url); // suppression de l'image initiale
 
                 $file_name = $_FILES['img_url']['name']; 
                 $file_extension = strrchr($file_name, '.');
@@ -150,8 +150,9 @@
 
                 if (in_array($file_extension, $authorized_extensions)) {
                     if (move_uploaded_file($file_tmp_name, $img_url) && $_FILES['img_url']['error'] == 0) {
+                        $chapterImage = $chapterManagerAdmin->getCurrentImg($id); // variable qui récupère l'image initiale
+                        unlink($chapterImage->img_url); // suppression de l'image initiale
                         $chapterAdmin = $chapterManagerAdmin->editChapterAdmin($id, $title, $chapterNumber, $content, $img_url); // appel de la fonction qui modifie le chapitre selon son id et son nouveau contenu
-                        //$chapterImage = $chapterManagerAdmin->getCurrentImg($id); // variable qui récupère l'image initiale
                         if ($affectedLines === false) {
                             throw new Exception('Impossible d\'ajouter le chapitre');
                         }
@@ -161,18 +162,8 @@
                 } else {
                     throw new Exception('Seuls les fichiers PNG et JPG sont autorisés...');
                 }
-                //unlink($chapterImage->img_url);
             } else if ($_FILES['img_url']['error']) {
                 $chapterAdmin = $chapterManagerAdmin->editChapterAdmin($id, $title, $chapterNumber, $content, NULL); // appel de la fonction qui modifie le chapitre selon son id et son nouveau contenu
-                $chapterImage = $chapterManagerAdmin->getCurrentImg($id);
-                /*$phrase = "Eat public";
-                $healthy = array("public");
-                $yummy   = array("pizza<br>");
-
-                $newphrase = str_replace($healthy, $yummy, $phrase);
-                var_dump($newphrase);*/
-
-                var_dump("../".$chapterImage->img_url);
             }
 
             return $chapterAdmin;
@@ -182,8 +173,11 @@
         function removeChapterAdmin() {
             $chapterManagerAdmin = new billet_simple\model\AdminManager(); // création d'un objet qui récupèrera les données d'un chapitre
 
-            $chapterAdmin = $chapterManagerAdmin->deleteChapterAdmin($_GET['id']); // appel du commentaire et suppression par son id
+            $chapterImage = $chapterManagerAdmin->getCurrentImg($_GET['id']); // variable qui récupère l'image initiale
+            unlink($chapterImage->img_url);
 
+            $chapterAdmin = $chapterManagerAdmin->deleteChapterAdmin($_GET['id']); // appel du commentaire et suppression par son id
+            
             return $chapterAdmin;
         }
 

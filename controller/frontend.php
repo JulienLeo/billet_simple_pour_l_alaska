@@ -30,7 +30,11 @@
             $chapterManager = new billet_simple\model\ChapterManager(); // création d'un objet qui récupèrera les données d'un chapitre
             $chapter = $chapterManager->getChapter($id); // appel de la fonction qui sélectionne le chapitre selon son id
             
-            return $chapter;
+            if($chapter) {
+                return $chapter;
+            } else {
+                header("Location: index.php?action=default");
+            }
         }
 
         function nextChapter($id) {
