@@ -12,7 +12,7 @@
         <h4>écrit par {{ comment.author_comment }} le {{ comment.date_comment_fr }}</h4>
     </div>
 
-    <form class="selectedComment" action="indexAdmin.php?action=editComment&amp;id={{ comment.id }}&amp;chapterId={{ chapter.id }}" method="post">
+    <form class="selectedComment" action="indexAdmin.php?action=editComment&amp;id={{ comment.id }}&amp;chapterId={{ chapter.id }}&amp;token={{ token }}" method="post">
         <div class="modifyItem modifyCommentContent">
             <textarea name="commentText" id="commentText">{{ comment.comment }}</textarea>
         </div>
@@ -22,7 +22,7 @@
         </div>
     </form>
 
-    <form action="indexAdmin.php?action=deleteComment&amp;id={{ comment.id }}&amp;chapterId={{ chapter.id }}" method="post">
+    <form action="indexAdmin.php?action=deleteComment&amp;id={{ comment.id }}&amp;chapterId={{ chapter.id }}&amp;token={{ token }}" method="post">
         <input type="submit" id="deleteButton" value="Supprimer" />
     </form>
 

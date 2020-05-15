@@ -12,9 +12,6 @@
         $page = $_GET['action'];
     }
 
-    
-
-
     // Rendu du template
     $loader = new Twig_Loader_Filesystem(__DIR__ . '/view/frontend');
     
@@ -37,13 +34,6 @@
             break;
 
         case 'chapter' :
-            $chapter = $frontEnd->chapter($_GET['id']);
-            $postedComments = $frontEnd->listComments($_GET['id']);
-            echo $twig->render('chapterView.php', ['navList' => $listNav, 'chapter' => $chapter, 'postedComments' => $postedComments]);
-            break;
-        
-        case 'nextChapter' :
-            $nextChapter = $frontEnd->nextChapter($_GET['id']);
             $chapter = $frontEnd->chapter($_GET['id']);
             $postedComments = $frontEnd->listComments($_GET['id']);
             echo $twig->render('chapterView.php', ['navList' => $listNav, 'chapter' => $chapter, 'postedComments' => $postedComments]);

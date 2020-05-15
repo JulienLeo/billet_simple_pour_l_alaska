@@ -42,7 +42,7 @@ header {
     z-index: 100;
 }
 
-header h1 {
+#bookTitle {
     font-size: 2em;
     font-weight: bold;
 }
@@ -72,6 +72,8 @@ ul.menu {
 }
 
 .nav-item select {
+    text-align: center;
+    text-align-last: center;
     font-family: 'hind_light', 'hind_regular';
 }
 
@@ -127,12 +129,8 @@ footer {
     width: 20%;
 }
 
-/*.card-block {
-    width: 100%;
-}*/
-
 .textContent {
-    margin: 5px;
+    margin-top: 5px;
 }
 
 .textContent a:hover {
@@ -141,7 +139,7 @@ footer {
 }
 
 .listChapters h3 {
-    margin: 5px;
+    margin: 5px 0 5px 0;
     font-size: 1.17em;
     font-weight: bold;
 }
@@ -162,8 +160,8 @@ footer {
 }
 
 #goToComments {
-    position: absolute;
-    right: 10px;
+    margin-left: 80%;
+    font-family: 'hind_light';
 }
 
 #nextChapter {
@@ -311,38 +309,114 @@ footer {
     color: black;
 }
 
-
-/* PAGE CONTACT 
-
-.contactForm {
-    height: 60%;
-    width: 20%;
-    margin-top: 5%;
-    text-align: center;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: rgba(156, 156, 156, 0.7);
-}
-
-.contactForm input, .contactForm textarea {
-    width: 100%;
-    margin-top: 1em;
-    border-style: none;
-    border-radius: 3px;
-}
-
-#contactTitle {
-    margin : 0;
-}
-
-*/
-
-
-
-
-@media screen and (min-width: 1088px) {
+@media screen and (max-width: 1088px) {
     .container {
         max-width: unset;
         width: unset;
+    }
+
+    #goToComments {
+        margin-left: 75%;
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .row {
+        margin: 5px !important;
+    }
+
+    .borderedText {
+        margin: 5px;
+        margin-bottom: 20px;
+    }
+
+    #imgChapitre {
+        width: 100%;
+    }
+
+    .listChapters h3 {
+        margin: 0;
+        font-size: 1.17em;
+        font-weight: bold;
+    }
+
+    .listChapters .textContent {
+        margin: 0;
+        margin-top: 5px;
+    }
+
+    .listChapters h3 {
+        font-size: 1em !important;
+    }
+
+    .chapterDiv .imgDiv img {
+        width: 100%;
+    }
+
+    #goToComments {
+        margin-left: 60%;
+        font-size: 0.75em;
+    }
+
+    .authorBio img {
+        width: 100%;
+    }
+
+    .authorBio h3 {
+        font-size: 1.5em;
+    }
+
+    .authorAmazon {
+        margin: 5px;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    #bookAuthor {
+        display: none;
+    }
+
+    .container {
+        padding-top: 80px;
+    }
+
+    .borderedText {
+        margin: 0;
+    }
+
+    #imgChapitre {
+        width: 35%;
+    }
+
+    .card-block p {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    #bookTitle {
+        font-size: 1.4em;
+    }
+
+    #bookAuthor {
+        font-size: 1em;
+    }
+
+    .menu {
+        font-size: 0.8rem;
+    }
+
+    .container {
+        padding-top: 85px;
+    }
+
+    .card-block p {
+        font-size: 0.9em;
+    }
+
+    #goToComments {
+        margin-left: 55%;
+        font-size: 0.7em;
     }
 }

@@ -5,6 +5,7 @@
     require 'model/TwigExtensions.php';
 
     session_start();
+
     ob_start();
 
     $page = 'admin';
@@ -16,12 +17,6 @@
         $page = '';
     }
 
-    // Récupération des chapitres dans la base de données 
-    /*$db = new PDO('mysql:host=localhost;dbname=blog_ecrivain', 'root', ''); // instance de PDO
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // alerte si la requête échoue
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);*/
-
-
     // Rendu du template
     $loader = new Twig_Loader_Filesystem(__DIR__ . '/view/admin');
     
@@ -31,7 +26,16 @@
 
     $twig->addExtension(new Extension());
 
+    // VARIABLE FRONTEND
     $adminFrontEnd = new AdminFrontEnd();
+
+    // GENERATION TOKEN
+    function generateToken() {
+        $token = bin2hex(random_bytes(32));
+        $_SESSION['token'] = $token;
+
+        return $token;
+    }
 
     switch ($page) {
 
@@ -45,12 +49,13 @@
             break;
         
         case 'addChapter' :
-            echo $twig->render('addChapter.php');
+            $token = generateToken();
+            echo $twig->render('addChapter.php',['token' => $token]);
             break;
 
         case 'addedChapter' :
             $addChapterAdmin = $adminFrontEnd->addChapterAdmin(htmlspecialchars($_POST['title']), $_POST['chapterNumber'], $_POST['content'], htmlspecialchars($_POST['img_url']));
-            echo $twig->render('addedChapter.php', ['chapter' => $chapter, 'error' => $addError, 'errorImg' => $addErrorImg]);
+            echo $twig->render('addedChapter.php', ['chapter' => $chapter, 'error' => $addError, 'errorImg' => $addErrorImg, 'token' => $token]);
             break;
 
         case 'adminListChapters' : 
@@ -59,20 +64,20 @@
             break;
 
         case 'modifyChapter' : 
+            $token = generateToken();
             $chapterAdmin = $adminFrontEnd->chapterAdmin();
-            echo $twig->render('modifyChapter.php', ['chapter' => $chapterAdmin]);
+            echo $twig->render('modifyChapter.php', ['chapter' => $chapterAdmin, 'token' => $token]);
             break;
 
         case 'editChapter' :
-            //$store = $adminFrontEnd->storeImg();
             $modifyChapterAdmin = $adminFrontEnd->modifyChapterAdmin($_GET['id'], htmlspecialchars($_POST['modifyChapterTitle']), $_POST['modifyChapterNumber'], $_POST['modifyChapterContent'], $_POST['img_url']);
             $chapter = $adminFrontEnd->chapterAdmin();
-            echo $twig->render('editedChapter.php', ['chapter' => $chapter]);
+            echo $twig->render('editedChapter.php', ['chapter' => $chapter, 'token' => $token]);
             break;
 
         case 'deleteChapter' : 
             $removeChapterAdmin = $adminFrontEnd->removeChapterAdmin($_GET['id']);
-            echo $twig->render('deletedChapter.php', ['delete' => $removeChapterAdmin]);
+            echo $twig->render('deletedChapter.php', ['delete' => $removeChapterAdmin, 'token' => $token]);
             break;
 
         case 'adminComments' : 
@@ -97,34 +102,31 @@
             break;
 
         case 'adminChapterComment' :
+            $token = generateToken();
             $chapter = $adminFrontEnd->chapterAdmin();
             $comment = $adminFrontEnd->commentAdmin();
-            echo $twig->render('adminChapterComment.php', ['chapter' => $chapter, 'comment' => $comment]);
+            echo $twig->render('adminChapterComment.php', ['chapter' => $chapter, 'comment' => $comment, 'token' => $token]);
             break;
 
         case 'editComment' : 
             $chapter = $adminFrontEnd->chapterAdmin();
             $modifyComment = $adminFrontEnd->modifyCommentAdmin($_GET['id'], htmlspecialchars($_POST['commentText']), NULL);
             $comment = $adminFrontEnd->commentAdmin();
-            echo $twig->render('editedComment.php', ['chapter' => $chapter, 'comment' => $comment]);
+            echo $twig->render('editedComment.php', ['chapter' => $chapter, 'comment' => $comment, 'token' => $token]);
             break;
         
         case 'deleteComment' : 
             $chapter = $adminFrontEnd->chapterAdmin();
             $removeComment = $adminFrontEnd->removeCommentAdmin();
-            echo $twig->render('deletedComment.php', ['chapter' => $chapter, 'delete' => $removeComment]);
+            echo $twig->render('deletedComment.php', ['chapter' => $chapter, 'delete' => $removeComment, 'token' => $token]);
             break;
 
         case 'signIn' :
             $signIn = $adminFrontEnd->signIn($_POST['admin'], $_POST['password']);
-            //echo $twig->render('admin.php');
             break;
 
         default : 
             header('HTTP/1.0 404 Not Found');
-            echo $twig->render('404.php');
+            echo $twig->render('404Admin.php');
             break;
-    }
-
-
-// ob_get_clean(); 
+        }

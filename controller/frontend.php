@@ -37,13 +37,6 @@
             }
         }
 
-        function nextChapter($id) {
-            $chapterManager = new billet_simple\model\ChapterManager();
-            $nextChapter = $chapterManager->getNextChapter($id);
-
-            return $nextChapter;
-        }
-
         function listComments($id) {
             $commentManager = new billet_simple\model\CommentManager(); // création d'un objet qui récupèrera les données des commentaires
             $comments = $commentManager->getComments($id); // appel de la fonction qui sélectionne les commentaires selon l'id du chapitre

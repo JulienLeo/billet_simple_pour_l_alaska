@@ -10,7 +10,7 @@
         <h2>Ajouter un chapitre</h2>
     </div>
     <div class="addChapterDiv">
-        <form action="indexAdmin.php?action=addedChapter" method="post" enctype="multipart/form-data">
+        <form action="indexAdmin.php?action=addedChapter&amp;token={{ token }}" method="post" enctype="multipart/form-data">
             <div class="addChapterDivItem">
                 <input type="file" name="img_url" id="imgFile" accept="image/png, image/jpg, image/jpeg"/>
                 <span class="error">* ajout d'une image obligatoire</span>

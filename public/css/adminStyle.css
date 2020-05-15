@@ -399,3 +399,7 @@ footer {
 .validAdmin input:hover {
     background-color: #191f51;
 }
+
+.div404Admin {
+    text-align: center;
+}

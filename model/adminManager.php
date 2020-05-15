@@ -36,6 +36,10 @@
             return $req;
         }
 
+
+
+        // MODIFICATION D'UN CHAPITRE
+
         public function getChapterAdmin($chapterId) { // récupération d'un chapitre précis en fonction de son id
             $db = $this->dbConnect();
     
@@ -48,9 +52,6 @@
             return $chapter;
         } 
 
-
-
-        // MODIFICATION D'UN CHAPITRE
 
         public function getCurrentImg($id) { // => à appeler s'il y a modif' de l'image lors d'une modif' de chapitre
             $db = $this->dbConnect();
@@ -118,8 +119,6 @@
         public function getReportedCommentsAdmin($chapterId) {
             $db = $this->dbConnect();
 
-            /*$reportedComments = $db->prepare('SELECT id, chapter_id, author_comment, comment, DATE_FORMAT(date_comment, "%d/%m/%y à %H:%i") AS date_comment_fr FROM comments WHERE moderate IS NOT NULL ORDER BY id');*/
-
             $reportedComments = $db->prepare('SELECT comments.id AS commentId, comments.chapter_id, comments.author_comment, comments.comment, chapters.id, chapters.title, DATE_FORMAT(comments.date_comment, "%d/%m/%y à %H:%i") AS date_comment_fr FROM comments INNER JOIN chapters ON comments.chapter_id = chapters.id WHERE comments.moderate IS NOT NULL ORDER BY comments.id');
 
             $reportedComments->execute(array($chapterId));
@@ -143,5 +142,13 @@
             $req = $db->prepare('DELETE FROM comments WHERE id = ?');
 
             $req->execute(array($commentId));
+        }
+
+        public function deleteAllComments($chapterId) {
+            $db = $this->dbConnect();
+
+            $req = $db->prepare('DELETE FROM comments WHERE chapter_id = ?');
+
+            $req->execute(array($chapterId));
         }
     }
