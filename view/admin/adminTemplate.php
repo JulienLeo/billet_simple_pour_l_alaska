@@ -15,7 +15,7 @@
         <script>tinymce.init({selector:'.chapterDivItem textarea'});</script>
     </head>
 
-    <body name="top">
+    <body id="top">
         <header>
             <h4>Administration du site de Jean Forteroche<?php print_r($_SESSION); ?></h4>
             <p id="signOut">

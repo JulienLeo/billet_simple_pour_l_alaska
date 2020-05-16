@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="public/css/style.css">
     </head>
 
-    <body name="top">
+    <body id="top">
         <header>
             <h1 id="bookTitle">Billet Simple Pour l'Alaska</h1>
             <h2 id="bookAuthor">par Jean Forteroche</h2>

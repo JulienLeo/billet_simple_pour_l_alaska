@@ -8,7 +8,7 @@
     {% for chapter in chapters %}
         <div class="row">
             <div class="card listChapters borderedText col-xs">
-                <img src="{{ chapter.img_url }}" alt="une peinture de paysage enneigé" id="imgChapitre">
+                <img src="{{ chapter.img_url }}" alt="une peinture de paysage enneigé" class="imgChapter">
                 <div class="card-block">
                     <h3 class="card-title">{{ 'Chapitre ' ~ romanNumbered(chapter.chapterNumber) ~ ' : ' ~ chapter.title }}
                     </h3>

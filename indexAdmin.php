@@ -90,9 +90,8 @@
             break;
 
         case 'adminListReportedComments' : 
-            $chapter = $adminFrontEnd->chapterAdmin();
             $reportedComments = $adminFrontEnd->reportedCommentsAdmin();
-            echo $twig->render('adminListReportedComments.php', ['chapter' => $chapter,'reportedComments' => $reportedComments]);
+            echo $twig->render('adminListReportedComments.php', ['reportedComments' => $reportedComments]);
             break;
 
         case 'adminChapterComments' : 

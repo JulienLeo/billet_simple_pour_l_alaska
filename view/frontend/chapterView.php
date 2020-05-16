@@ -14,18 +14,18 @@
     </div>
 
     <div class="commentsDiv" id="commentsDiv">
-        <a name="target" id="target"></a>
+        <a id="target"></a>
         <h3>Poster un commentaire</h3>
 
         <form action="index.php?action=addComment&amp;id={{ chapter.id }}" method="post" id="commentForm">
             <div>
                 <label for="author">Auteur</label>
-                <input type="text" id="author" name="author" max-length="20"  required/>
+                <input type="text" id="author" name="author" required/>
             </div>
 
             <div>
                 <label for="comment">Votre commentaire</label>
-                <textarea name="comment" id="comment" max-length="1000" required></textarea>
+                <textarea name="comment" id="comment" required></textarea>
             </div>
 
             <div>

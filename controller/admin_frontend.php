@@ -117,7 +117,6 @@
                                 if ($affectedLines === false) {
                                     throw new Exception('Impossible d\'ajouter le chapitre');
                                 }
-                                //header("Location: view/frontend/admin/addedChapter.php");
                             } else {
                                 throw new Exception('Impossible d\'ajouter le chapitre');
                             }
