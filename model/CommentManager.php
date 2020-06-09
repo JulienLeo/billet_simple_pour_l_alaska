@@ -1,8 +1,6 @@
 <?php
 
-    namespace billet_simple\Model;
-
-    require_once 'model/Manager.php';
+    namespace Model;
 
     class CommentManager extends Manager {
 

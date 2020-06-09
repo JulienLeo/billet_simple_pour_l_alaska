@@ -1,7 +1,6 @@
 <?php
-    namespace billet_simple\Model;
-
-    require_once 'model/Manager.php';
+    
+    namespace Model;
 
     class ChapterManager extends Manager {
         
@@ -9,7 +8,9 @@
 
             $db = $this->dbConnect();
             
-            $req = $db->query('SELECT id, chapterNumber, title, content, img_url, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters ORDER BY chapterNumber');
+            $req = $db->prepare('SELECT id, chapterNumber, title, content, img_url, DATE_FORMAT(addition_date, "%d-%m-%y") AS addition_date_fr FROM chapters ORDER BY chapterNumber');
+
+            $req->execute(array());
         
             return $req;
         }

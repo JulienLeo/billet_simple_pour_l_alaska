@@ -7,9 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Twig\\Extensions\\' => array($vendorDir . '/twig/extensions/src'),
-    'Twig\\' => array($vendorDir . '/twig/twig/src'),
-    'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
-    'Symfony\\Component\\Process\\' => array($vendorDir . '/symfony/process'),
-    'Ramsey\\Twig\\CodeBlock\\' => array($vendorDir . '/ramsey/twig-codeblock/src'),
-    'Ramsey\\Pygments\\' => array($vendorDir . '/ramsey/pygments/src'),
+    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Model\\' => array($baseDir . '/model'),
+    'Controller\\' => array($baseDir . '/controller'),
 );

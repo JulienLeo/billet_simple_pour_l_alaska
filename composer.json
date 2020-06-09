@@ -1,10 +1,22 @@
 {
-    "name": "julienleopold/billet_simple",
+    "name": "julienleopold/project4",
+    "description": "Blog providing tools to circulate a book chapter by chapter",
+    "type": "project",
     "authors": [
         {
             "name": "JulienLeo",
             "email": "julien.t.leopold@gmail.com"
         }
     ],
-    "require": {}
+    "version": "1.0.1",
+    "require": {
+        "twig/twig": "2.0",
+        "twig/extensions": "^1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controller\\": "controller/",
+            "Model\\": "model/"
+        }
+    }
 }
