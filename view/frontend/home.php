@@ -6,7 +6,7 @@
 
 {% block content %}
     {% for chapter in chapters %}
-        <section class="row">
+        <div class="row">
             <article class="card listChapters borderedText col-xs">
                 <img src="{{ chapter.img_url }}" alt="une peinture de paysage enneigé" class="imgChapter">
                 <div class="card-block">
@@ -17,6 +17,6 @@
                     <p class="textContent"><em>Ajouté le {{ chapter.addition_date_fr }}</em></p>
                 </div>
             </article>
-        </section>
+        </div>
     {% endfor %}
 {% endblock %}

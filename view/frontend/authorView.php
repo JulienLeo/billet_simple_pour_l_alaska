@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <section class="row">
+    <div class="row">
         <article class="authorBio borderedText">
             <img src="img/author_page/author_portrait.png" title="Jean Forteroche" alt="portrait de Jean Forteroche">
             <h3 class="textContent"><strong>Jean Forteroche</strong></h3>
@@ -18,5 +18,5 @@
             <a href="https://www.amazon.com/s?k=jean+forteroche&ref=nb_sb_noss" target="_blank">Jean Forteroche sur Amazon <i class="fab fa-amazon"></i></a>
         </blockquote>
         <cite>Amazon</cite>
-    </section>
+    </div>
 {% endblock %}

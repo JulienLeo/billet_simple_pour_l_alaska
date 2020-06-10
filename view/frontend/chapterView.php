@@ -29,22 +29,22 @@
             <input type="text" id="author" name="author" class="inputComments" minlength="3" maxlength="25" />
         
             <label for="comment">Votre commentaire <span id="spanComment">* champs obligatoire</span></label>
-            <textarea type="text" name="comment" id="comment" class="inputComments" minlength="5" maxlength="255"></textarea>    
+            <textarea name="comment" id="comment" class="inputComments" minlength="5" maxlength="255"></textarea>    
 
             <button type="submit" name="addButton" id="addButton" class="g-recaptcha" data-sitekey="6LcP9_8UAAAAAOWR9a2mNj9tjCF__2YL4HN7Lbd1" data-callback='onSubmit' data-action='submit' value="Ajouter">Ajouter</button>          
         </form>
 
         <section class="postedComments">
 
-            <span class="commentsTitle">
+            <div class="commentsTitle">
                 {% if noComments|length > 0 %}
                     <h3 id="commentsTitle">Commentaires</h3>
                 {% else %}
                     <h3>Pas de commentaires</h3>
                 {% endif %}
-            </span>
+            </div>
             {% for postedComment in postedComments %}
-                <article class="commentDiv">
+                <div class="commentDiv">
                     <p><strong>{{ postedComment.author_comment }}</strong> le {{ postedComment.date_comment_fr }}</p>
                     <p>{{ postedComment.comment | nl2br }}</p>                    
                     <form action="index.php?action=reportComment&amp;id={{ chapter.id }}" method="post">
@@ -55,7 +55,7 @@
                             <span><i>(Ce commentaire a été signalé)</i></span>
                         {% endif %}
                     </form>
-                </article>
+                </div>
             {% endfor %}
         </section>
     </section>

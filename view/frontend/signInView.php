@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="fr">
+
 {% block head %}
     <title>Administration du site de Jean Forteroche</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -6,11 +9,12 @@
 
 {% block content %}
     <body>
-        <section class="signInContainer">
+        <div class="signInContainer">
             <p class="websiteLinkDiv">
                 <a class="websiteLink websiteLinkDiv" href="index.php?action=home"><i class="fas fa-arrow-circle-left"></i> Retour sur le site</a>
             </p>
             <section class="signInDiv">
+                <h1>Connexion</h1>
                 <form action="index.php?action=signIn" method="post">
                     <p class="usernameDiv">
                         <input type="text" id="admin" name="admin" placeholder="ID" class="usernameDiv" required/>
@@ -23,6 +27,6 @@
                     </p>
                 </form>
             </section>
-        </section>
+        </div>
     </body>
 {% endblock %}
