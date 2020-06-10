@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'hindsemibold';
+    src: url('hind-semibold-webfont.eot');
+    src: url('hind-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('hind-semibold-webfont.woff2') format('woff2'),
+         url('hind-semibold-webfont.woff') format('woff'),
+         url('hind-semibold-webfont.ttf') format('truetype'),
+         url('hind-semibold-webfont.svg#hindsemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
