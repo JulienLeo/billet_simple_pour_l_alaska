@@ -8,15 +8,6 @@
             document.getElementById("commentForm").submit();
         }
     </script>
-    <!--<script src="https://www.google.com/recaptcha/api.js?render=6LcP9_8UAAAAAOWR9a2mNj9tjCF__2YL4HN7Lbd1"></script>-->
-    <!--<script>
-        grecaptcha.ready(function() {
-            grecaptcha.execute('6LcP9_8UAAAAAOWR9a2mNj9tjCF__2YL4HN7Lbd1', {action: 'submit'}).then(function(token) {
-                let recaptchaResponse = document.getElementById('recaptchaResponse');
-                recaptchaResponse.value = token;
-            });
-        });
-    </script>-->
 {% endblock %}
 
 {% block content %}
@@ -35,15 +26,12 @@
 
         <form action="index.php?action=addComment&amp;id={{ chapter.id }}" method="post" id="commentForm">
             <label for="author">Auteur <span id="spanAuthor">* champs obligatoire</span></label>
-            <input type="text" id="author" name="author" class="inputComments"/>
+            <input type="text" id="author" name="author" class="inputComments" minlength="3" maxlength="25" />
         
             <label for="comment">Votre commentaire <span id="spanComment">* champs obligatoire</span></label>
-            <textarea type="text" name="comment" id="comment" class="inputComments"></textarea>    
+            <textarea type="text" name="comment" id="comment" class="inputComments" minlength="5" maxlength="255"></textarea>    
 
-            <button type="submit" name="addButton" id="addButton" class="g-recaptcha" data-sitekey="6LcP9_8UAAAAAOWR9a2mNj9tjCF__2YL4HN7Lbd1
-" data-callback='onSubmit' data-action='submit' value="Ajouter">Ajouter</button>
-
-            <!--<input type="hidden" name="recaptcha_response" id="recaptchaResponse">-->           
+            <button type="submit" name="addButton" id="addButton" class="g-recaptcha" data-sitekey="6LcP9_8UAAAAAOWR9a2mNj9tjCF__2YL4HN7Lbd1" data-callback='onSubmit' data-action='submit' value="Ajouter">Ajouter</button>          
         </form>
 
         <section class="postedComments">
