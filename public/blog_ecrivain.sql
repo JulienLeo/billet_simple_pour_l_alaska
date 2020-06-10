@@ -17,8 +17,6 @@ DROP DATABASE IF EXISTS dbs422147;
 
 CREATE DATABASE dbs422147 CHARACTER SET utf8;
 
--- Needs to be replaced in Production with the db name of the online server
-USE dbs422147;
 -- --------------------------------------------------------
 
 --
@@ -36,10 +34,6 @@ CREATE TABLE `admin_list` (
 --
 -- Déchargement des données de la table `admin_list`
 --
-
-INSERT INTO `admin_list` (`id`, `admin_name`, `admin_password`, `role`, `ip`) VALUES
-(1, 'JFort19', '2f737f9e97250de428d69e2aa0d8d165fac17deb5a5a5dfdd141aca58333f2eba72ed77860a401b2df0e5ac7b2bb8f7eca0d59407002310d961f030468322961', 'admin', 0);
-
 -- --------------------------------------------------------
 
 --
