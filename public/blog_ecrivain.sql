@@ -17,6 +17,8 @@ DROP DATABASE IF EXISTS dbs422147;
 
 CREATE DATABASE dbs422147 CHARACTER SET utf8;
 
+-- Needs to be replaced in Production with the db name of the online server
+USE dbs422147;
 -- --------------------------------------------------------
 
 --
