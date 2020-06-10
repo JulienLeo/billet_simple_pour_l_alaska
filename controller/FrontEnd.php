@@ -51,7 +51,7 @@
         //FONCTIONS COMMENTAIRES
 
         public function verifCaptcha() {
-	        $secret = "6LcP9_8UAAAAAFMnzrUOk2UxBKBwjzsrpi7jt_Ub"; // clé privée
+	        $secret = "SECRET_KEY"; // clé privée
 	        $response = $_POST['g-recaptcha-response']; // paramètre renvoyé par le recaptcha
             $remoteip = $_SERVER['REMOTE_ADDR']; // récupération IP de l'utilisateur
 
