@@ -10,7 +10,7 @@
     ],
     "version": "1.0.1",
     "require": {
-        "twig/twig": "2.0",
+        "twig/twig": "2.14.11",
         "twig/extensions": "^1.5"
     },
     "autoload": {
